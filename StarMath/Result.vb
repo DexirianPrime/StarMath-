@@ -1,5 +1,7 @@
-﻿Public Class tfleet2hp
+﻿Public Class Tfleet2hp
     Private Sub Result_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        'Fleet 1 Variable Init'
 
         Dim fleet1hp As Int64
         Dim fleet1dmg As Int64
@@ -8,12 +10,16 @@
         Dim cfleet1hp As Int64
         Dim cfleet1dmg As Int64
 
+        'Defending Fleet 1 Variable Init'
+
         Dim dfleet1hp As Int64
         Dim dfleet1dmg As Int64
         Dim dfleet1hpboost As Int64
         Dim dfleet1dmgboost As Int64
         Dim dcfleet1hp As Int64
         Dim dcfleet1dmg As Int64
+
+        'Fleet 2 Variable Init'
 
         Dim fleet2hp As Int64
         Dim fleet2dmg As Int64
@@ -22,12 +28,16 @@
         Dim cfleet2hp As Int64
         Dim cfleet2dmg As Int64
 
+        'Defending Fleet 2 Variable Init'
+
         Dim dfleet2hp As Int64
         Dim dfleet2dmg As Int64
         Dim dfleet2hpboost As Int64
         Dim dfleet2dmgboost As Int64
         Dim dcfleet2hp As Int64
         Dim dcfleet2dmg As Int64
+
+        'Combat Variables Init'
 
         Dim armadahp As Int64
         Dim armadadmg As Int64
@@ -42,17 +52,18 @@
         Dim dfleet1loss As Int64
         Dim dfleet2loss As Int64
 
+        'Initial fleet HP/DMG Boost to 0'
+
         fleet1hpboost = 0
         fleet1dmgboost = 0
-
         dfleet1hpboost = 0
         dfleet1dmgboost = 0
-
         fleet2hpboost = 0
         fleet2dmgboost = 0
-
         dfleet2hpboost = 0
         dfleet2dmgboost = 0
+
+        'Case for Card Bonuses Calculations'
 
         Select Case fleet1type
             Case "Industrial"
@@ -606,25 +617,30 @@
                 End Select
         End Select
 
+        'Card Bonuses application to Fleet Vars'
+
+        'Fleet 1'
         fleet1hp = fleet1hp + fleet1hpboost
         fleet1dmg = fleet1dmg + fleet1dmgboost
         cfleet1hp = fleet1hp * fleet1count
         cfleet1dmg = fleet1dmg * fleet1count
-
+        'D Fleet 1'
         dfleet1hp = dfleet1hp + dfleet1hpboost
         dfleet1dmg = dfleet1dmg + dfleet1dmgboost
         dcfleet1hp = dfleet1hp * dfleet1count
         dcfleet1dmg = dfleet1dmg * dfleet1count
-
+        'Fleet 2'
         fleet2hp = fleet2hp + fleet2hpboost
         fleet2dmg = fleet2dmg + fleet2dmgboost
         cfleet2hp = fleet2hp * fleet2count
         cfleet2dmg = fleet2dmg * fleet2count
-
+        'D Fleet 2'
         dfleet2hp = dfleet2hp + dfleet2hpboost
         dfleet2dmg = dfleet2dmg + dfleet2dmgboost
         dcfleet2hp = dfleet2hp * dfleet2count
         dcfleet2dmg = dfleet2dmg * dfleet2count
+
+        'Text Fields Assignation'
 
         tfleet1.Text = fleet1type
         tfleet1count.Text = fleet1count
@@ -636,15 +652,20 @@
         tfleet2hpp.Text = cfleet2hp
         tfleet2dmg.Text = cfleet2dmg
 
+        'Armada HP Calculations'
+
         armadahp = cfleet1hp + cfleet2hp
         armadadmg = cfleet1dmg + cfleet2dmg
         darmadadmg = dcfleet1dmg + dcfleet2dmg
         darmadahp = dcfleet1hp + dcfleet2hp
 
-        damagedealt1 = dfleet1hp / darmadahp * armadadmg
-        damagedealt2 = dfleet2hp / darmadahp * armadadmg
-        damagetaken1 = fleet1hp / armadahp * darmadadmg
-        damagetaken2 = fleet2hp / armadahp * darmadadmg
+        'Individual Fleet DMG Calculation'
+
+        'Broken Code Here'
+        damagedealt1 = dcfleet1hp / darmadahp * armadadmg
+        damagedealt2 = dcfleet2hp / darmadahp * armadadmg
+        damagetaken1 = cfleet1hp / armadahp * darmadadmg
+        damagetaken2 = cfleet2hp / armadahp * darmadadmg
 
         tfleet1taken.Text = damagetaken1
         tfleet2taken.Text = damagetaken2

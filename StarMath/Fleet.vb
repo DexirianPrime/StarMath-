@@ -84,7 +84,7 @@
             ToolTip1.Show("Style is not an Integer value", TextBox1, New Point(0, -80), 2500)
             TextBox2.Text = ""
         End Try
-        If i >= 12 AndAlso i2 <= 1500 Then
+        If i2 >= 1 AndAlso i2 <= 1500 Then
             fleet2count = i2
             Me.Text = fleet2count.ToString
         Else
