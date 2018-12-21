@@ -43,16 +43,16 @@
         Dim armadadmg As Int64
         Dim darmadahp As Int64
         Dim darmadadmg As Int64
-        Dim damagetaken1 As Int64
-        Dim damagedealt1 As Int64
-        Dim damagetaken2 As Int64
-        Dim damagedealt2 As Int64
+        Dim damagetaken1 As Decimal
+        Dim damagedealt1 As Decimal
+        Dim damagetaken2 As Decimal
+        Dim damagedealt2 As Decimal
         Dim fleet1loss As Int64
         Dim fleet2loss As Int64
         Dim dfleet1loss As Int64
         Dim dfleet2loss As Int64
 
-        'Initial fleet HP/DMG Boost to 0'
+        'Initial fleet HP/DMG Boost and DMG values to 0'
 
         fleet1hpboost = 0
         fleet1dmgboost = 0
@@ -62,6 +62,10 @@
         fleet2dmgboost = 0
         dfleet2hpboost = 0
         dfleet2dmgboost = 0
+        damagetaken1 = 0
+        damagetaken2 = 0
+        damagedealt1 = 0
+        damagedealt2 = 0
 
         'Case for Card Bonuses Calculations'
 
@@ -620,25 +624,36 @@
         'Card Bonuses application to Fleet Vars'
 
         'Fleet 1'
-        fleet1hp = fleet1hp + fleet1hpboost
-        fleet1dmg = fleet1dmg + fleet1dmgboost
-        cfleet1hp = fleet1hp * fleet1count
-        cfleet1dmg = fleet1dmg * fleet1count
+        If fleet1count > 0 Then
+            fleet1hp = fleet1hp + fleet1hpboost
+            fleet1dmg = fleet1dmg + fleet1dmgboost
+            cfleet1hp = fleet1hp * fleet1count
+            cfleet1dmg = fleet1dmg * fleet1count
+        End If
+
         'D Fleet 1'
-        dfleet1hp = dfleet1hp + dfleet1hpboost
-        dfleet1dmg = dfleet1dmg + dfleet1dmgboost
-        dcfleet1hp = dfleet1hp * dfleet1count
-        dcfleet1dmg = dfleet1dmg * dfleet1count
+        If dfleet1count > 0 Then
+            dfleet1hp = dfleet1hp + dfleet1hpboost
+            dfleet1dmg = dfleet1dmg + dfleet1dmgboost
+            dcfleet1hp = dfleet1hp * dfleet1count
+            dcfleet1dmg = dfleet1dmg * dfleet1count
+        End If
+
         'Fleet 2'
-        fleet2hp = fleet2hp + fleet2hpboost
-        fleet2dmg = fleet2dmg + fleet2dmgboost
-        cfleet2hp = fleet2hp * fleet2count
-        cfleet2dmg = fleet2dmg * fleet2count
+        If fleet2count > 0 Then
+            fleet2hp = fleet2hp + fleet2hpboost
+            fleet2dmg = fleet2dmg + fleet2dmgboost
+            cfleet2hp = fleet2hp * fleet2count
+            cfleet2dmg = fleet2dmg * fleet2count
+        End If
+
         'D Fleet 2'
-        dfleet2hp = dfleet2hp + dfleet2hpboost
-        dfleet2dmg = dfleet2dmg + dfleet2dmgboost
-        dcfleet2hp = dfleet2hp * dfleet2count
-        dcfleet2dmg = dfleet2dmg * dfleet2count
+        If dfleet2count > 0 Then
+            dfleet2hp = dfleet2hp + dfleet2hpboost
+            dfleet2dmg = dfleet2dmg + dfleet2dmgboost
+            dcfleet2hp = dfleet2hp * dfleet2count
+            dcfleet2dmg = dfleet2dmg * dfleet2count
+        End If
 
         'Text Fields Assignation'
 
@@ -662,32 +677,46 @@
         'Individual Fleet DMG Calculation'
 
         'Broken Code Here'
-        damagedealt1 = dcfleet1hp / darmadahp * armadadmg
-        damagedealt2 = dcfleet2hp / darmadahp * armadadmg
-        damagetaken1 = cfleet1hp / armadahp * darmadadmg
-        damagetaken2 = cfleet2hp / armadahp * darmadadmg
+        If dfleet1count > 0 Then
+            damagedealt1 = (dcfleet1hp / darmadahp) * armadadmg
+        End If
+
+
+        If dfleet2count > 0 Then
+            damagedealt2 = (dcfleet2hp / darmadahp) * armadadmg
+        End If
+
+        If fleet1count > 0 Then
+            damagetaken1 = (cfleet1hp / armadahp) * darmadadmg
+        End If
+
+
+        If fleet2count > 0 Then
+            damagetaken2 = (cfleet2hp / armadahp) * darmadadmg
+        End If
+
 
         tfleet1taken.Text = damagetaken1
         tfleet2taken.Text = damagetaken2
 
 
         If damagedealt1 > dfleet1hp Then
-            dfleet1loss = dfleet1hp / damagedealt1
+            dfleet1loss = dfleet1hp \ damagedealt1
 
         End If
 
         If damagedealt2 > dfleet2hp Then
-            dfleet2loss = dfleet2hp / damagedealt2
+            dfleet2loss = dfleet2hp \ damagedealt2
 
         End If
 
         If damagetaken1 > fleet1hp Then
-            fleet1loss = fleet1hp / damagetaken1
+            fleet1loss = fleet1hp \ damagetaken1
             tfleet1loss.Text = fleet1loss
         End If
 
         If damagetaken2 > fleet2hp Then
-            fleet2loss = fleet2hp / damagetaken2
+            fleet2loss = fleet2hp \ damagetaken2
             tfleet2loss.Text = fleet2loss
         End If
 
