@@ -23,11 +23,11 @@ Partial Class DefFleet
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.cbdfleet1card = New System.Windows.Forms.ComboBox()
+        Me.cbdfleet1hull = New System.Windows.Forms.ComboBox()
+        Me.cbdfleet1hard = New System.Windows.Forms.ComboBox()
+        Me.tbdfleet1size = New System.Windows.Forms.TextBox()
+        Me.cbdfleet1type = New System.Windows.Forms.ComboBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
@@ -35,11 +35,11 @@ Partial Class DefFleet
         Me.Label1 = New System.Windows.Forms.Label()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.ComboBox8 = New System.Windows.Forms.ComboBox()
+        Me.cbdfleet2card = New System.Windows.Forms.ComboBox()
+        Me.cbdfleet2hull = New System.Windows.Forms.ComboBox()
+        Me.cbdfleet2hard = New System.Windows.Forms.ComboBox()
+        Me.tbdfleet2size = New System.Windows.Forms.TextBox()
+        Me.cbdfleet2type = New System.Windows.Forms.ComboBox()
         Me.SuspendLayout()
         '
         'Label6
@@ -52,48 +52,48 @@ Partial Class DefFleet
         Me.Label6.TabIndex = 23
         Me.Label6.Text = "DEFENDING FLEET"
         '
-        'ComboBox4
+        'cbdfleet1card
         '
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Items.AddRange(New Object() {"Fleet Cadet", "Max Rykov"})
-        Me.ComboBox4.Location = New System.Drawing.Point(533, 99)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox4.TabIndex = 22
+        Me.cbdfleet1card.FormattingEnabled = True
+        Me.cbdfleet1card.Items.AddRange(New Object() {"Fleet Cadet", "Max Rykov"})
+        Me.cbdfleet1card.Location = New System.Drawing.Point(533, 99)
+        Me.cbdfleet1card.Name = "cbdfleet1card"
+        Me.cbdfleet1card.Size = New System.Drawing.Size(121, 21)
+        Me.cbdfleet1card.TabIndex = 22
         '
-        'ComboBox3
+        'cbdfleet1hull
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"Common HP", "Rare HP", "Epic HP", "Legendary HP", "Common DMG", "Rare DMG", "Epic DMG", "Legendary DMG"})
-        Me.ComboBox3.Location = New System.Drawing.Point(389, 100)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox3.TabIndex = 21
+        Me.cbdfleet1hull.FormattingEnabled = True
+        Me.cbdfleet1hull.Items.AddRange(New Object() {"Common HP", "Rare HP", "Epic HP", "Legendary HP", "Common DMG", "Rare DMG", "Epic DMG", "Legendary DMG"})
+        Me.cbdfleet1hull.Location = New System.Drawing.Point(389, 100)
+        Me.cbdfleet1hull.Name = "cbdfleet1hull"
+        Me.cbdfleet1hull.Size = New System.Drawing.Size(121, 21)
+        Me.cbdfleet1hull.TabIndex = 21
         '
-        'ComboBox2
+        'cbdfleet1hard
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Common HP", "Rare HP", "Epic HP", "Legendary HP", "Common DMG", "Rare DMG", "Epic DMG", "Legendary DMG"})
-        Me.ComboBox2.Location = New System.Drawing.Point(249, 100)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox2.TabIndex = 20
+        Me.cbdfleet1hard.FormattingEnabled = True
+        Me.cbdfleet1hard.Items.AddRange(New Object() {"Common HP", "Rare HP", "Epic HP", "Legendary HP", "Common DMG", "Rare DMG", "Epic DMG", "Legendary DMG"})
+        Me.cbdfleet1hard.Location = New System.Drawing.Point(249, 100)
+        Me.cbdfleet1hard.Name = "cbdfleet1hard"
+        Me.cbdfleet1hard.Size = New System.Drawing.Size(121, 21)
+        Me.cbdfleet1hard.TabIndex = 20
         '
-        'TextBox1
+        'tbdfleet1size
         '
-        Me.TextBox1.Location = New System.Drawing.Point(182, 100)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(51, 20)
-        Me.TextBox1.TabIndex = 19
+        Me.tbdfleet1size.Location = New System.Drawing.Point(182, 100)
+        Me.tbdfleet1size.Name = "tbdfleet1size"
+        Me.tbdfleet1size.Size = New System.Drawing.Size(51, 20)
+        Me.tbdfleet1size.TabIndex = 19
         '
-        'ComboBox1
+        'cbdfleet1type
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Corvette", "Patrol Ship", "Frigate", "Destroyer", "Gunship", "Carrier", "Dreadnaught"})
-        Me.ComboBox1.Location = New System.Drawing.Point(26, 100)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 18
+        Me.cbdfleet1type.FormattingEnabled = True
+        Me.cbdfleet1type.Items.AddRange(New Object() {"Corvette", "Patrol Ship", "Frigate", "Destroyer", "Gunship", "Carrier", "Dreadnaught"})
+        Me.cbdfleet1type.Location = New System.Drawing.Point(26, 100)
+        Me.cbdfleet1type.Name = "cbdfleet1type"
+        Me.cbdfleet1type.Size = New System.Drawing.Size(121, 21)
+        Me.cbdfleet1type.TabIndex = 18
         '
         'Label5
         '
@@ -158,67 +158,67 @@ Partial Class DefFleet
         Me.Button1.Text = "Back"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'ComboBox5
+        'cbdfleet2card
         '
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Items.AddRange(New Object() {"Fleet Cadet", "Max Rykov"})
-        Me.ComboBox5.Location = New System.Drawing.Point(533, 141)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox5.TabIndex = 30
+        Me.cbdfleet2card.FormattingEnabled = True
+        Me.cbdfleet2card.Items.AddRange(New Object() {"Fleet Cadet", "Max Rykov"})
+        Me.cbdfleet2card.Location = New System.Drawing.Point(533, 141)
+        Me.cbdfleet2card.Name = "cbdfleet2card"
+        Me.cbdfleet2card.Size = New System.Drawing.Size(121, 21)
+        Me.cbdfleet2card.TabIndex = 30
         '
-        'ComboBox6
+        'cbdfleet2hull
         '
-        Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Items.AddRange(New Object() {"Common HP", "Rare HP", "Epic HP", "Legendary HP", "Common DMG", "Rare DMG", "Epic DMG", "Legendary DMG"})
-        Me.ComboBox6.Location = New System.Drawing.Point(389, 142)
-        Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox6.TabIndex = 29
+        Me.cbdfleet2hull.FormattingEnabled = True
+        Me.cbdfleet2hull.Items.AddRange(New Object() {"Common HP", "Rare HP", "Epic HP", "Legendary HP", "Common DMG", "Rare DMG", "Epic DMG", "Legendary DMG"})
+        Me.cbdfleet2hull.Location = New System.Drawing.Point(389, 142)
+        Me.cbdfleet2hull.Name = "cbdfleet2hull"
+        Me.cbdfleet2hull.Size = New System.Drawing.Size(121, 21)
+        Me.cbdfleet2hull.TabIndex = 29
         '
-        'ComboBox7
+        'cbdfleet2hard
         '
-        Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Items.AddRange(New Object() {"Common HP", "Rare HP", "Epic HP", "Legendary HP", "Common DMG", "Rare DMG", "Epic DMG", "Legendary DMG"})
-        Me.ComboBox7.Location = New System.Drawing.Point(249, 142)
-        Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox7.TabIndex = 28
+        Me.cbdfleet2hard.FormattingEnabled = True
+        Me.cbdfleet2hard.Items.AddRange(New Object() {"Common HP", "Rare HP", "Epic HP", "Legendary HP", "Common DMG", "Rare DMG", "Epic DMG", "Legendary DMG"})
+        Me.cbdfleet2hard.Location = New System.Drawing.Point(249, 142)
+        Me.cbdfleet2hard.Name = "cbdfleet2hard"
+        Me.cbdfleet2hard.Size = New System.Drawing.Size(121, 21)
+        Me.cbdfleet2hard.TabIndex = 28
         '
-        'TextBox2
+        'tbdfleet2size
         '
-        Me.TextBox2.Location = New System.Drawing.Point(182, 142)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(51, 20)
-        Me.TextBox2.TabIndex = 27
+        Me.tbdfleet2size.Location = New System.Drawing.Point(182, 142)
+        Me.tbdfleet2size.Name = "tbdfleet2size"
+        Me.tbdfleet2size.Size = New System.Drawing.Size(51, 20)
+        Me.tbdfleet2size.TabIndex = 27
         '
-        'ComboBox8
+        'cbdfleet2type
         '
-        Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Items.AddRange(New Object() {"Corvette", "Patrol Ship", "Frigate", "Destroyer", "Gunship", "Carrier", "Dreadnaught"})
-        Me.ComboBox8.Location = New System.Drawing.Point(26, 142)
-        Me.ComboBox8.Name = "ComboBox8"
-        Me.ComboBox8.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox8.TabIndex = 26
+        Me.cbdfleet2type.FormattingEnabled = True
+        Me.cbdfleet2type.Items.AddRange(New Object() {"Corvette", "Patrol Ship", "Frigate", "Destroyer", "Gunship", "Carrier", "Dreadnaught"})
+        Me.cbdfleet2type.Location = New System.Drawing.Point(26, 142)
+        Me.cbdfleet2type.Name = "cbdfleet2type"
+        Me.cbdfleet2type.Size = New System.Drawing.Size(121, 21)
+        Me.cbdfleet2type.TabIndex = 26
         '
         'DefFleet
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(679, 365)
-        Me.Controls.Add(Me.ComboBox5)
-        Me.Controls.Add(Me.ComboBox6)
-        Me.Controls.Add(Me.ComboBox7)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.ComboBox8)
+        Me.Controls.Add(Me.cbdfleet2card)
+        Me.Controls.Add(Me.cbdfleet2hull)
+        Me.Controls.Add(Me.cbdfleet2hard)
+        Me.Controls.Add(Me.tbdfleet2size)
+        Me.Controls.Add(Me.cbdfleet2type)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.ComboBox4)
-        Me.Controls.Add(Me.ComboBox3)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.ComboBox1)
+        Me.Controls.Add(Me.cbdfleet1card)
+        Me.Controls.Add(Me.cbdfleet1hull)
+        Me.Controls.Add(Me.cbdfleet1hard)
+        Me.Controls.Add(Me.tbdfleet1size)
+        Me.Controls.Add(Me.cbdfleet1type)
         Me.Controls.Add(Me.Label5)
         Me.Controls.Add(Me.Label4)
         Me.Controls.Add(Me.Label3)
@@ -232,11 +232,11 @@ Partial Class DefFleet
     End Sub
 
     Friend WithEvents Label6 As Label
-    Friend WithEvents ComboBox4 As ComboBox
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
+    Friend WithEvents cbdfleet1card As ComboBox
+    Friend WithEvents cbdfleet1hull As ComboBox
+    Friend WithEvents cbdfleet1hard As ComboBox
+    Friend WithEvents tbdfleet1size As TextBox
+    Friend WithEvents cbdfleet1type As ComboBox
     Friend WithEvents Label5 As Label
     Friend WithEvents Label4 As Label
     Friend WithEvents Label3 As Label
@@ -244,9 +244,9 @@ Partial Class DefFleet
     Friend WithEvents Label1 As Label
     Friend WithEvents Button2 As Button
     Friend WithEvents Button1 As Button
-    Friend WithEvents ComboBox5 As ComboBox
-    Friend WithEvents ComboBox6 As ComboBox
-    Friend WithEvents ComboBox7 As ComboBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents ComboBox8 As ComboBox
+    Friend WithEvents cbdfleet2card As ComboBox
+    Friend WithEvents cbdfleet2hull As ComboBox
+    Friend WithEvents cbdfleet2hard As ComboBox
+    Friend WithEvents tbdfleet2size As TextBox
+    Friend WithEvents cbdfleet2type As ComboBox
 End Class
