@@ -701,6 +701,28 @@ Public Class Tfleet2hp
         tfleet2hpp.Text = cfleet2hp
         tfleet2dmg.Text = cfleet2dmg
 
+        'Damage Reduction Application'
+
+        If fleet1type = "Patrol Ship" Or "Frigate" Then
+            cfleet1hp = cfleet1hp / 2
+            cfleet1dmg = cfleet1dmg / 2
+        End If
+
+        If fleet2type = "Patrol Ship" Or "Frigate" Then
+            cfleet2hp = cfleet2hp / 2
+            cfleet2dmg = cfleet2dmg / 2
+        End If
+
+        If dfleet1type = "Corvette" Or "Destroyer" Or "Gunship" Then
+            dcfleet1hp = dcfleet1hp / 2
+            dcfleet1dmg = dcfleet1dmg / 2
+        End If
+
+        If dfleet2type = "Corvette" Or "Destroyer" Or "Gunship" Then
+            dcfleet2hp = dcfleet2hp / 2
+            dcfleet2dmg = dcfleet2dmg / 2
+        End If
+
         'Armada HP Calculations'
 
         armadahp = cfleet1hp + cfleet2hp
@@ -708,9 +730,13 @@ Public Class Tfleet2hp
         darmadadmg = dcfleet1dmg + dcfleet2dmg
         darmadahp = dcfleet1hp + dcfleet2hp
 
+
+
+
+
         'Individual Fleet DMG Calculation'
 
-        'Broken Code Here'
+
         If dfleet1count > 0 Then
             damagedealt1 = (dcfleet1hp / darmadahp) * armadadmg
         End If
@@ -735,27 +761,30 @@ Public Class Tfleet2hp
 
 
         If damagedealt1 > dfleet1hp Then
-            dfleet1loss = dfleet1hp \ damagedealt1
+            dfleet1loss = damagedealt1 \ dfleet1hp
 
         End If
 
         If damagedealt2 > dfleet2hp Then
-            dfleet2loss = dfleet2hp \ damagedealt2
+            dfleet2loss = damagedealt2 \ dfleet2hp
 
         End If
 
         If damagetaken1 > fleet1hp Then
-            fleet1loss = fleet1hp \ damagetaken1
+            fleet1loss = damagetaken1 \ fleet1hp
             tfleet1loss.Text = fleet1loss
         End If
 
         If damagetaken2 > fleet2hp Then
-            fleet2loss = fleet2hp \ damagetaken2
+            fleet2loss = damagetaken2 \ fleet2hp
             tfleet2loss.Text = fleet2loss
         End If
 
 
+
     End Sub
+
+
 
 
 End Class
