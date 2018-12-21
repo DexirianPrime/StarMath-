@@ -1,46 +1,46 @@
 ﻿Public Class tfleet2hp
     Private Sub Result_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Dim fleet1hp As Int16
-        Dim fleet1dmg As Int16
-        Dim fleet1hpboost As Int16
-        Dim fleet1dmgboost As Int16
-        Dim cfleet1hp As Int32
-        Dim cfleet1dmg As Int32
+        Dim fleet1hp As Int64
+        Dim fleet1dmg As Int64
+        Dim fleet1hpboost As Int64
+        Dim fleet1dmgboost As Int64
+        Dim cfleet1hp As Int64
+        Dim cfleet1dmg As Int64
 
-        Dim dfleet1hp As Int16
-        Dim dfleet1dmg As Int16
-        Dim dfleet1hpboost As Int16
-        Dim dfleet1dmgboost As Int16
-        Dim dcfleet1hp As Int32
-        Dim dcfleet1dmg As Int32
+        Dim dfleet1hp As Int64
+        Dim dfleet1dmg As Int64
+        Dim dfleet1hpboost As Int64
+        Dim dfleet1dmgboost As Int64
+        Dim dcfleet1hp As Int64
+        Dim dcfleet1dmg As Int64
 
-        Dim fleet2hp As Int16
-        Dim fleet2dmg As Int16
-        Dim fleet2hpboost As Int16
-        Dim fleet2dmgboost As Int16
-        Dim cfleet2hp As Int32
-        Dim cfleet2dmg As Int32
+        Dim fleet2hp As Int64
+        Dim fleet2dmg As Int64
+        Dim fleet2hpboost As Int64
+        Dim fleet2dmgboost As Int64
+        Dim cfleet2hp As Int64
+        Dim cfleet2dmg As Int64
 
-        Dim dfleet2hp As Int16
-        Dim dfleet2dmg As Int16
-        Dim dfleet2hpboost As Int16
-        Dim dfleet2dmgboost As Int16
-        Dim dcfleet2hp As Int32
-        Dim dcfleet2dmg As Int32
+        Dim dfleet2hp As Int64
+        Dim dfleet2dmg As Int64
+        Dim dfleet2hpboost As Int64
+        Dim dfleet2dmgboost As Int64
+        Dim dcfleet2hp As Int64
+        Dim dcfleet2dmg As Int64
 
-        Dim armadahp As Int32
-        Dim armadadmg As Int32
-        Dim darmadahp As Int32
-        Dim darmadadmg As Int32
-        Dim damagetaken1 As Int32
-        Dim damagedealt1 As Int32
-        Dim damagetaken2 As Int32
-        Dim damagedealt2 As Int32
-        Dim fleet1loss As Int32
-        Dim fleet2loss As Int32
-        Dim dfleet1loss As Int32
-        Dim dfleet2loss As Int32
+        Dim armadahp As Int64
+        Dim armadadmg As Int64
+        Dim darmadahp As Int64
+        Dim darmadadmg As Int64
+        Dim damagetaken1 As Int64
+        Dim damagedealt1 As Int64
+        Dim damagetaken2 As Int64
+        Dim damagedealt2 As Int64
+        Dim fleet1loss As Int64
+        Dim fleet2loss As Int64
+        Dim dfleet1loss As Int64
+        Dim dfleet2loss As Int64
 
         fleet1hpboost = 0
         fleet1dmgboost = 0
@@ -643,13 +643,35 @@
 
         damagedealt1 = dfleet1hp / darmadahp * armadadmg
         damagedealt2 = dfleet2hp / darmadahp * armadadmg
+        damagetaken1 = fleet1hp / armadahp * darmadadmg
+        damagetaken2 = fleet2hp / armadahp * darmadadmg
 
-        If damagedealt1 > fleet1hp Then
-            damagedealt1 / fleet1hp = dfleet1loss
+        tfleet1taken.Text = damagetaken1
+        tfleet2taken.Text = damagetaken2
+
+
+        If damagedealt1 > dfleet1hp Then
+            dfleet1loss = dfleet1hp / damagedealt1
 
         End If
 
+        If damagedealt2 > dfleet2hp Then
+            dfleet2loss = dfleet2hp / damagedealt2
+
+        End If
+
+        If damagetaken1 > fleet1hp Then
+            fleet1loss = fleet1hp / damagetaken1
+            tfleet1loss.Text = fleet1loss
+        End If
+
+        If damagetaken2 > fleet2hp Then
+            fleet2loss = fleet2hp / damagetaken2
+            tfleet2loss.Text = fleet2loss
+        End If
 
 
     End Sub
+
+
 End Class

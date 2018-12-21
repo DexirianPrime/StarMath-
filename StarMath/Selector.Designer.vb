@@ -65,7 +65,7 @@ Partial Class Selector
         Me.Label2.Text = "This program allows you to calculate combat losses and potential harvest values w" &
     "ith basic input. "
         '
-        'Main
+        'Selector
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -74,7 +74,7 @@ Partial Class Selector
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Button2)
         Me.Controls.Add(Me.Button1)
-        Me.Name = "Main"
+        Me.Name = "Selector"
         Me.Text = "StarMath"
         Me.ResumeLayout(False)
         Me.PerformLayout()
