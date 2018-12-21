@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.168
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "StarMath", "StarMath\StarMath.vbproj", "{96051635-001E-42F9-8D48-63449937EAB5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96051635-001E-42F9-8D48-63449937EAB5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96051635-001E-42F9-8D48-63449937EAB5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96051635-001E-42F9-8D48-63449937EAB5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96051635-001E-42F9-8D48-63449937EAB5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B41CC8DC-97BC-4A51-AD79-CA0B641F47A5}
+	EndGlobalSection
+EndGlobal
