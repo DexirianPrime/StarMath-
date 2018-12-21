@@ -1,4 +1,8 @@
-﻿Public Class Tfleet2hp
+﻿Option Explicit On
+
+Public Class Tfleet2hp
+
+
     Private Sub Result_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         'Fleet 1 Variable Init'
@@ -70,9 +74,13 @@
         'Case for Card Bonuses Calculations'
 
         Select Case fleet1type
+
             Case "Industrial"
+
                 fleet1hp = 400
+
                 Select Case fleet1hull
+
                     Case "Common HP"
                         fleet1hpboost = fleet1hpboost + 25
                     Case "Rare HP"
@@ -81,8 +89,11 @@
                         fleet1hpboost = fleet1hpboost + 75
                     Case "Legendary HP"
                         fleet1hpboost = fleet1hpboost + 100
+
                 End Select
+
                 Select Case fleet1hard
+
                     Case "Common HP"
                         fleet1hpboost = fleet1hpboost + 20
                     Case "Rare HP"
@@ -98,7 +109,9 @@
 
                 fleet1hp = 200
                 fleet1dmg = 80
+
                 Select Case fleet1hull
+
                     Case "Common HP"
                         fleet1hpboost = fleet1hpboost + 25
                     Case "Rare HP"
@@ -115,8 +128,11 @@
                         fleet1dmgboost = fleet1dmgboost + 15
                     Case "Legendary DMG"
                         fleet1dmgboost = fleet1dmgboost + 20
+
                 End Select
+
                 Select Case fleet1hard
+
                     Case "Common HP"
                         fleet1hpboost = fleet1hpboost + 20
                     Case "Rare HP"
@@ -133,11 +149,16 @@
                         fleet1dmgboost = fleet1dmgboost + 30
                     Case "Legendary DMG"
                         fleet1dmgboost = fleet1dmgboost + 40
+
                 End Select
+
             Case "Destroyer", "Frigate", "Gunship"
+
                 fleet1hp = 1000
                 fleet1dmg = 400
+
                 Select Case fleet1hull
+
                     Case "Common HP"
                         fleet1hpboost = fleet1hpboost + 125
                     Case "Rare HP"
@@ -154,8 +175,11 @@
                         fleet1dmgboost = fleet1dmgboost + 75
                     Case "Legendary DMG"
                         fleet1dmgboost = fleet1dmgboost + 100
+
                 End Select
+
                 Select Case fleet1hard
+
                     Case "Common HP"
                         fleet1hpboost = fleet1hpboost + 100
                     Case "Rare HP"
@@ -172,11 +196,16 @@
                         fleet1dmgboost = fleet1dmgboost + 150
                     Case "Legendary DMG"
                         fleet1dmgboost = fleet1dmgboost + 200
+
                 End Select
+
             Case "Carrier", "Dreadnaught"
+
                 fleet1hp = 5000
                 fleet1dmg = 2000
+
                 Select Case fleet1hull
+
                     Case "Common HP"
                         fleet1hpboost = fleet1hpboost + 125
                     Case "Rare HP"
@@ -193,8 +222,11 @@
                         fleet1dmgboost = fleet1dmgboost + 75
                     Case "Legendary DMG"
                         fleet1dmgboost = fleet1dmgboost + 100
+
                 End Select
+
                 Select Case fleet1hard
+
                     Case "Common HP"
                         fleet1hpboost = fleet1hpboost + 500
                     Case "Rare HP"
@@ -211,7 +243,9 @@
                         fleet1dmgboost = fleet1dmgboost + 750
                     Case "Legendary DMG"
                         fleet1dmgboost = fleet1dmgboost + 1000
+
                 End Select
+
         End Select
 
         Select Case fleet2type
