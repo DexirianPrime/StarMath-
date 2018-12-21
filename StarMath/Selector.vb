@@ -21,6 +21,9 @@ Public Module globalfleet
     Public dfleet2card As String
     Public dfleet2count As Int16
     Public attacktype As String
+    Public fleetcount As Int16
+    Public dfleetcount As Int16
+
 End Module
 
 Public Class Selector
