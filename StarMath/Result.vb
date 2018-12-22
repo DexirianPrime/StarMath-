@@ -224,16 +224,25 @@ Public Class Tfleet2hp
             If BaseValues(i).Attacker Then
                 ArmadaAttackHP += stats.CombinedHP
                 ArmadaAttackDamage += stats.CombinedDamage
+                stats.FleetAttacker = True
             Else
                 ArmadaDefenseHP += stats.CombinedHP
                 ArmadaDefenseDamage += stats.CombinedDamage
+                stats.FleetAttacker = False
             End If
 
             result(i) = stats
         Next
 
+        Return result
+    End Function
+
+    Function Fight(ByVal ParamArray BaseValues2() As FleetBase) As FleetStats()
+        Dim result(BaseValues2.Count() - 1) As FleetStats
+
         For i As Integer = 0 To result.Count() - 1
-            If Not (BaseValues(i).Attacker) Then
+            Dim stats As FleetStats = New FleetStats()
+            If Not (BaseValues2(i).Attacker) Then
                 result(i).TakenDamage = (result(i).CombinedHP / ArmadaDefenseHP) * ArmadaAttackDamage
             Else
                 result(i).TakenDamage = (result(i).CombinedHP / ArmadaAttackHP) * ArmadaDefenseDamage
@@ -242,10 +251,31 @@ Public Class Tfleet2hp
             If (result(i).TakenDamage > result(i).HP) Then
                 result(i).Losses = result(i).TakenDamage \ result(i).HP
             End If
-        Next
 
+            result(i) = stats
+        Next
         Return result
     End Function
+
+    Function Fight(ByVal ParamArray FinalStats() As FleetStats) As FleetStats()
+        Dim result(FinalStats.Count() - 1) As FleetStats
+
+        For i As Integer = 0 To result.Count() - 1
+            Dim stat As FleetStats = New FleetStats()
+            If (FinalStats(i).FleetAttacker) Then
+                result(i).TakenDamage = (result(i).CombinedHP / ArmadaDefenseHP) * ArmadaAttackDamage
+            Else
+                result(i).TakenDamage = (result(i).CombinedHP / ArmadaAttackHP) * ArmadaDefenseDamage
+            End If
+
+            If (result(i).TakenDamage > result(i).HP) Then
+                result(i).Losses = result(i).TakenDamage \ result(i).HP
+            End If
+            result(i) = stat
+        Next
+        Return result
+    End Function
+
 
     Private Sub Result_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 

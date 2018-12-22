@@ -1,25 +1,6 @@
 ﻿
 Public Module globalfleet
-    Public fleet1type As String
-    Public fleet1hull As String
-    Public fleet1hard As String
-    Public fleet1card As String
-    Public fleet1count As Int16
-    Public dfleet1type As String
-    Public dfleet1hull As String
-    Public dfleet1hard As String
-    Public dfleet1card As String
-    Public dfleet1count As Int16
-    Public fleet2type As String
-    Public fleet2hull As String
-    Public fleet2hard As String
-    Public fleet2card As String
-    Public fleet2count As Int16
-    Public dfleet2type As String
-    Public dfleet2hull As String
-    Public dfleet2hard As String
-    Public dfleet2card As String
-    Public dfleet2count As Int16
+
     Public attacktype As String
     Public fleetcount As Int16
     Public dfleetcount As Int16
@@ -72,6 +53,7 @@ Public Class FleetStats
     Public CombinedDamage As Int64
     Public TakenDamage As Int32
     Public Losses As Int32
+    Public FleetAttacker As Boolean
 
 
 
