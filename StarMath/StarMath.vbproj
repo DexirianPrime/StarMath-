@@ -79,16 +79,16 @@
     <Compile Include="BC1.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Fleet.Designer.vb">
-      <DependentUpon>Fleet.vb</DependentUpon>
-    </Compile>
-    <Compile Include="Fleet.vb">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="DefFleet.Designer.vb">
       <DependentUpon>DefFleet.vb</DependentUpon>
     </Compile>
     <Compile Include="DefFleet.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fleet.Designer.vb">
+      <DependentUpon>Fleet.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Fleet.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Result.Designer.vb">
@@ -119,16 +119,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="BaseFleetGrid.Designer.vb">
+      <DependentUpon>BaseFleetGrid.vb</DependentUpon>
+    </Compile>
+    <Compile Include="BaseFleetGrid.vb">
+      <SubType>UserControl</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="BC1.resx">
       <DependentUpon>BC1.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Fleet.resx">
-      <DependentUpon>Fleet.vb</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="DefFleet.resx">
       <DependentUpon>DefFleet.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fleet.resx">
+      <DependentUpon>Fleet.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Result.resx">
       <DependentUpon>Result.vb</DependentUpon>
@@ -141,6 +147,9 @@
       <LastGenOutput>Resources.Designer.vb</LastGenOutput>
       <CustomToolNamespace>My.Resources</CustomToolNamespace>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BaseFleetGrid.resx">
+      <DependentUpon>BaseFleetGrid.vb</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

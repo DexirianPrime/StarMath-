@@ -26,6 +26,7 @@
         If i >= 1 AndAlso i <= 5 Then
             Userint = i
             Me.Text = Userint.ToString
+            fleetcount = Userint
         Else
             Dim ToolTip1 As New ToolTip
             ToolTip1.IsBalloon = True
@@ -54,6 +55,7 @@
         If i2 >= 1 AndAlso i2 <= 5 Then
             Userint2 = i2
             Me.Text = Userint2.ToString
+            dfleetcount = Userint2
         Else
             Dim ToolTip1 As New ToolTip
             ToolTip1.IsBalloon = True
@@ -71,18 +73,22 @@
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        Fleet.Show()
+        frmFleet.Show()
         Me.Hide()
         attacktype = "raid"
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-        Fleet.Show()
+        frmFleet.Show()
         Me.Hide()
         attacktype = "assault"
     End Sub
 
     Private Sub BC1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub BC1_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
+        Selector.Close()
     End Sub
 End Class
