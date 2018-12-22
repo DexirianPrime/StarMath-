@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class Tfleet2hp
+Partial Class Results
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -231,7 +231,7 @@ Partial Class Tfleet2hp
         Me.tfleet1taken.TabIndex = 17
         Me.tfleet1taken.Text = "0"
         '
-        'tfleet2hp
+        'Results
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -256,7 +256,7 @@ Partial Class Tfleet2hp
         Me.Controls.Add(Me.tfleet1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
-        Me.Name = "tfleet2hp"
+        Me.Name = "Results"
         Me.Text = "Battle Results"
         Me.ResumeLayout(False)
         Me.PerformLayout()

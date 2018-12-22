@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FleetTypes>
+  <Fleet Name="Industrial">
+    <HP>400</HP>
+    <FP>0</FP>
+    <CanBomb>false</CanBomb>
+    <Type>Light</Type>
+    <AllowHardPointHP>true</AllowHardPointHP>
+    <AllowHardPointFP>false</AllowHardPointFP>
+    <AllowHullHP>true</AllowHullHP>
+    <AllowHullFP>false</AllowHullFP>
+    <AllowUtilityHP>false</AllowUtilityHP>
+    <AllowUtilityFP>false</AllowUtilityFP>
+  </Fleet>
+  <Fleet Name="Patrol">
+    <HP>200</HP>
+    <FP>80</FP>
+    <CanBomb>false</CanBomb>
+    <Type>Light</Type>
+    <AllowHardPointHP>true</AllowHardPointHP>
+    <AllowHardPointFP>true</AllowHardPointFP>
+    <AllowHullHP>true</AllowHullHP>
+    <AllowHullFP>true</AllowHullFP>
+    <AllowUtilityHP>true</AllowUtilityHP>
+    <AllowUtilityFP>true</AllowUtilityFP>
+  </Fleet>
+  <Fleet Name="Corvette">
+    <HP>200</HP>
+    <FP>80</FP>
+    <CanBomb>false</CanBomb>
+    <Type>Light</Type>
+    <AllowHardPointHP>true</AllowHardPointHP>
+    <AllowHardPointFP>true</AllowHardPointFP>
+    <AllowHullHP>true</AllowHullHP>
+    <AllowHullFP>true</AllowHullFP>
+    <AllowUtilityHP>true</AllowUtilityHP>
+    <AllowUtilityFP>true</AllowUtilityFP>
+  </Fleet>
+  <Fleet Name="Destroyer">
+    <HP>1000</HP>
+    <FP>400</FP>
+    <CanBomb>false</CanBomb>
+    <Type>Heavy</Type>
+    <AllowHardPointHP>true</AllowHardPointHP>
+    <AllowHardPointFP>true</AllowHardPointFP>
+    <AllowHullHP>true</AllowHullHP>
+    <AllowHullFP>true</AllowHullFP>
+    <AllowUtilityHP>true</AllowUtilityHP>
+    <AllowUtilityFP>true</AllowUtilityFP>
+  </Fleet>
+  <Fleet Name="Frigate">
+    <HP>1000</HP>
+    <FP>400</FP>
+    <CanBomb>false</CanBomb>
+    <Type>Heavy</Type>
+    <AllowHardPointHP>true</AllowHardPointHP>
+    <AllowHardPointFP>true</AllowHardPointFP>
+    <AllowHullHP>true</AllowHullHP>
+    <AllowHullFP>true</AllowHullFP>
+    <AllowUtilityHP>true</AllowUtilityHP>
+    <AllowUtilityFP>true</AllowUtilityFP>
+  </Fleet>
+  <Fleet Name="Gunship">
+    <HP>1000</HP>
+    <FP>400</FP>
+    <CanBomb>true</CanBomb>
+    <Type>Heavy</Type>
+    <AllowHardPointHP>true</AllowHardPointHP>
+    <AllowHardPointFP>true</AllowHardPointFP>
+    <AllowHullHP>true</AllowHullHP>
+    <AllowHullFP>true</AllowHullFP>
+    <AllowUtilityHP>true</AllowUtilityHP>
+    <AllowUtilityFP>true</AllowUtilityFP>
+  </Fleet>
+  <Fleet Name="Carrier">
+    <HP>5000</HP>
+    <FP>2000</FP>
+    <CanBomb>false</CanBomb>
+    <Type>Capital</Type>
+    <AllowHardPointHP>true</AllowHardPointHP>
+    <AllowHardPointFP>true</AllowHardPointFP>
+    <AllowHullHP>true</AllowHullHP>
+    <AllowHullFP>true</AllowHullFP>
+    <AllowUtilityHP>true</AllowUtilityHP>
+    <AllowUtilityFP>true</AllowUtilityFP>
+  </Fleet>
+  <Fleet Name="Dreadnaught">
+    <HP>5000</HP>
+    <FP>2000</FP>
+    <CanBomb>false</CanBomb>
+    <Type>Capital</Type>
+    <AllowHardPointHP>true</AllowHardPointHP>
+    <AllowHardPointFP>true</AllowHardPointFP>
+    <AllowHullHP>true</AllowHullHP>
+    <AllowHullFP>true</AllowHullFP>
+    <AllowUtilityHP>true</AllowUtilityHP>
+    <AllowUtilityFP>true</AllowUtilityFP>
+  </Fleet>
+</FleetTypes>

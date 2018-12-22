@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Enemies>
+	<Enemy>
+		<Name>Marauder Camp</Name>
+		<Level>1</Level>
+		<Patrols>5</Patrols>
+	</Enemy>
+	<Enemy>
+		<Name>MPL Mining Facility</Name>
+		<Level>2</Level>
+		<Patrols>200</Patrols>
+	</Enemy>
+	<Enemy>
+		<Name>Marauder Garrison</Name>
+		<Level>2</Level>
+		<Patrols>200</Patrols>
+	</Enemy>
+	<Enemy>
+		<Name>Marauder Stronghold</Name>
+		<Level>3</Level>
+		<Patrols>500</Patrols>
+		<Frigates>100</Frigates>
+	</Enemy>
+	<Enemy>
+		<Name>MPL</Name>
+		<Level>3</Level>
+		<Patrols>500</Patrols>
+		<Frigates>100</Frigates>
+	</Enemy>
+	<Enemy>
+		<Name>Gelecek</Name>
+		<Level>3</Level>
+		<Patrols>400</Patrols>
+		<Patrols>800</Patrols>
+		<Frigates>300</Frigates>
+	</Enemy>
+	<Enemy>
+		<Name>XAOC</Name>
+		<Level>4</Level>
+		<Frigates>400</Frigates>
+		<Frigates>400</Frigates>
+		<Dreadnaughts>100</Dreadnaughts>
+	</Enemy>
+</Enemies>

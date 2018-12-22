@@ -22,231 +22,176 @@ Partial Class DefFleet
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(DefFleet))
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.ComboBox4 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox3 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox2 = New System.Windows.Forms.ComboBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
-        Me.ComboBox1 = New System.Windows.Forms.ComboBox()
-        Me.Label5 = New System.Windows.Forms.Label()
-        Me.Label4 = New System.Windows.Forms.Label()
-        Me.Label3 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
-        Me.ComboBox5 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox6 = New System.Windows.Forms.ComboBox()
-        Me.ComboBox7 = New System.Windows.Forms.ComboBox()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
-        Me.ComboBox8 = New System.Windows.Forms.ComboBox()
+        Me.cmbTarget = New System.Windows.Forms.ComboBox()
+        Me.btnNext = New System.Windows.Forms.Button()
+        Me.btnBack = New System.Windows.Forms.Button()
+        Me.dgFleetList = New System.Windows.Forms.DataGridView()
+        Me.Panel1 = New System.Windows.Forms.Panel()
+        Me.fltType = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.fltAmount = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.fltWorstCase = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.fltWorstCaseLevel = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.fltHardPoint = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.fltHullCard = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.fltUtility = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        CType(Me.dgFleetList, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.Panel1.SuspendLayout()
         Me.SuspendLayout()
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(245, 22)
+        Me.Label6.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.Label6.Location = New System.Drawing.Point(12, 22)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(185, 24)
-        Me.Label6.TabIndex = 23
-        Me.Label6.Text = "DEFENDING FLEET"
+        Me.Label6.Size = New System.Drawing.Size(48, 17)
+        Me.Label6.TabIndex = 31
+        Me.Label6.Text = "&Target:"
         '
-        'ComboBox4
+        'cmbTarget
         '
-        Me.ComboBox4.FormattingEnabled = True
-        Me.ComboBox4.Items.AddRange(New Object() {"Fleet Cadet", "Max Rykov"})
-        Me.ComboBox4.Location = New System.Drawing.Point(533, 99)
-        Me.ComboBox4.Name = "ComboBox4"
-        Me.ComboBox4.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox4.TabIndex = 22
+        Me.cmbTarget.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.cmbTarget.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
+        Me.cmbTarget.ForeColor = System.Drawing.SystemColors.ControlLightLight
+        Me.cmbTarget.FormattingEnabled = True
+        Me.cmbTarget.Location = New System.Drawing.Point(66, 19)
+        Me.cmbTarget.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.cmbTarget.Name = "cmbTarget"
+        Me.cmbTarget.Size = New System.Drawing.Size(350, 25)
+        Me.cmbTarget.TabIndex = 32
         '
-        'ComboBox3
+        'btnNext
         '
-        Me.ComboBox3.FormattingEnabled = True
-        Me.ComboBox3.Items.AddRange(New Object() {"Common HP", "Rare HP", "Epic HP", "Legendary HP", "Common DMG", "Rare DMG", "Epic DMG", "Legendary DMG"})
-        Me.ComboBox3.Location = New System.Drawing.Point(389, 100)
-        Me.ComboBox3.Name = "ComboBox3"
-        Me.ComboBox3.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox3.TabIndex = 21
+        Me.btnNext.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.btnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnNext.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnNext.Location = New System.Drawing.Point(715, 420)
+        Me.btnNext.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnNext.Name = "btnNext"
+        Me.btnNext.Size = New System.Drawing.Size(132, 42)
+        Me.btnNext.TabIndex = 33
+        Me.btnNext.Text = "&Next"
+        Me.btnNext.UseVisualStyleBackColor = True
         '
-        'ComboBox2
+        'btnBack
         '
-        Me.ComboBox2.FormattingEnabled = True
-        Me.ComboBox2.Items.AddRange(New Object() {"Common HP", "Rare HP", "Epic HP", "Legendary HP", "Common DMG", "Rare DMG", "Epic DMG", "Legendary DMG"})
-        Me.ComboBox2.Location = New System.Drawing.Point(249, 100)
-        Me.ComboBox2.Name = "ComboBox2"
-        Me.ComboBox2.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox2.TabIndex = 20
+        Me.btnBack.Anchor = CType((System.Windows.Forms.AnchorStyles.Bottom Or System.Windows.Forms.AnchorStyles.Left), System.Windows.Forms.AnchorStyles)
+        Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBack.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBack.Location = New System.Drawing.Point(12, 420)
+        Me.btnBack.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(132, 42)
+        Me.btnBack.TabIndex = 34
+        Me.btnBack.Text = "&Back"
+        Me.btnBack.UseVisualStyleBackColor = True
         '
-        'TextBox1
+        'dgFleetList
         '
-        Me.TextBox1.Location = New System.Drawing.Point(182, 100)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(51, 20)
-        Me.TextBox1.TabIndex = 19
+        Me.dgFleetList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgFleetList.BackgroundColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.dgFleetList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgFleetList.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.fltType, Me.fltAmount, Me.fltWorstCase, Me.fltWorstCaseLevel, Me.fltHardPoint, Me.fltHullCard, Me.fltUtility})
+        Me.dgFleetList.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.dgFleetList.Location = New System.Drawing.Point(0, 0)
+        Me.dgFleetList.Name = "dgFleetList"
+        Me.dgFleetList.Size = New System.Drawing.Size(835, 362)
+        Me.dgFleetList.TabIndex = 35
         '
-        'ComboBox1
+        'Panel1
         '
-        Me.ComboBox1.FormattingEnabled = True
-        Me.ComboBox1.Items.AddRange(New Object() {"Corvette", "Patrol Ship", "Frigate", "Destroyer", "Gunship", "Carrier", "Dreadnaught"})
-        Me.ComboBox1.Location = New System.Drawing.Point(26, 100)
-        Me.ComboBox1.Name = "ComboBox1"
-        Me.ComboBox1.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox1.TabIndex = 18
+        Me.Panel1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.Panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink
+        Me.Panel1.Controls.Add(Me.dgFleetList)
+        Me.Panel1.Location = New System.Drawing.Point(12, 51)
+        Me.Panel1.Name = "Panel1"
+        Me.Panel1.Size = New System.Drawing.Size(835, 362)
+        Me.Panel1.TabIndex = 36
         '
-        'Label5
+        'fltType
         '
-        Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(554, 66)
-        Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(79, 13)
-        Me.Label5.TabIndex = 17
-        Me.Label5.Text = "Fleet Character"
+        Me.fltType.HeaderText = "Fleet Type"
+        Me.fltType.Items.AddRange(New Object() {"Patrols", "Corvettes", "Scouts", "Industrials", "Destroyers", "Frigates", "Gunships", "Recons", "Carriers", "Dreadnaughts"})
+        Me.fltType.Name = "fltType"
+        Me.fltType.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
-        'Label4
+        'fltAmount
         '
-        Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(271, 66)
-        Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(78, 13)
-        Me.Label4.TabIndex = 16
-        Me.Label4.Text = "Hardpoint Card"
+        Me.fltAmount.HeaderText = "# of Ships"
+        Me.fltAmount.Name = "fltAmount"
         '
-        'Label3
+        'fltWorstCase
         '
-        Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(421, 66)
-        Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(50, 13)
-        Me.Label3.TabIndex = 15
-        Me.Label3.Text = "Hull Card"
+        Me.fltWorstCase.HeaderText = "Worst Case?"
+        Me.fltWorstCase.Name = "fltWorstCase"
+        Me.fltWorstCase.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.fltWorstCase.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
-        'Label2
+        'fltWorstCaseLevel
         '
-        Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(180, 66)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(53, 13)
-        Me.Label2.TabIndex = 14
-        Me.Label2.Text = "Fleet Size"
+        Me.fltWorstCaseLevel.HeaderText = "Worst Case Level"
+        Me.fltWorstCaseLevel.Items.AddRange(New Object() {"None", "Common", "Rare", "Epic", "Legendary"})
+        Me.fltWorstCaseLevel.Name = "fltWorstCaseLevel"
         '
-        'Label1
+        'fltHardPoint
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(59, 66)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(55, 13)
-        Me.Label1.TabIndex = 13
-        Me.Label1.Text = "Ship Type"
+        Me.fltHardPoint.HeaderText = "HardPoint Card"
+        Me.fltHardPoint.Items.AddRange(New Object() {"None", "Common", "Rare", "Epic", "Legendary"})
+        Me.fltHardPoint.Name = "fltHardPoint"
+        Me.fltHardPoint.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
-        'Button2
+        'fltHullCard
         '
-        Me.Button2.Location = New System.Drawing.Point(578, 321)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(75, 23)
-        Me.Button2.TabIndex = 25
-        Me.Button2.Text = "Next"
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.fltHullCard.HeaderText = "Hull Card"
+        Me.fltHullCard.Items.AddRange(New Object() {"None", "Common", "Rare", "Epic", "Legendary"})
+        Me.fltHullCard.Name = "fltHullCard"
+        Me.fltHullCard.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         '
-        'Button1
+        'fltUtility
         '
-        Me.Button1.Location = New System.Drawing.Point(471, 321)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 24
-        Me.Button1.Text = "Back"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
-        'ComboBox5
-        '
-        Me.ComboBox5.FormattingEnabled = True
-        Me.ComboBox5.Items.AddRange(New Object() {"Fleet Cadet", "Max Rykov"})
-        Me.ComboBox5.Location = New System.Drawing.Point(533, 141)
-        Me.ComboBox5.Name = "ComboBox5"
-        Me.ComboBox5.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox5.TabIndex = 30
-        '
-        'ComboBox6
-        '
-        Me.ComboBox6.FormattingEnabled = True
-        Me.ComboBox6.Items.AddRange(New Object() {"Common HP", "Rare HP", "Epic HP", "Legendary HP", "Common DMG", "Rare DMG", "Epic DMG", "Legendary DMG"})
-        Me.ComboBox6.Location = New System.Drawing.Point(389, 142)
-        Me.ComboBox6.Name = "ComboBox6"
-        Me.ComboBox6.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox6.TabIndex = 29
-        '
-        'ComboBox7
-        '
-        Me.ComboBox7.FormattingEnabled = True
-        Me.ComboBox7.Items.AddRange(New Object() {"Common HP", "Rare HP", "Epic HP", "Legendary HP", "Common DMG", "Rare DMG", "Epic DMG", "Legendary DMG"})
-        Me.ComboBox7.Location = New System.Drawing.Point(249, 142)
-        Me.ComboBox7.Name = "ComboBox7"
-        Me.ComboBox7.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox7.TabIndex = 28
-        '
-        'TextBox2
-        '
-        Me.TextBox2.Location = New System.Drawing.Point(182, 142)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(51, 20)
-        Me.TextBox2.TabIndex = 27
-        '
-        'ComboBox8
-        '
-        Me.ComboBox8.FormattingEnabled = True
-        Me.ComboBox8.Items.AddRange(New Object() {"Corvette", "Patrol Ship", "Frigate", "Destroyer", "Gunship", "Carrier", "Dreadnaught"})
-        Me.ComboBox8.Location = New System.Drawing.Point(26, 142)
-        Me.ComboBox8.Name = "ComboBox8"
-        Me.ComboBox8.Size = New System.Drawing.Size(121, 21)
-        Me.ComboBox8.TabIndex = 26
+        Me.fltUtility.HeaderText = "Utility Card"
+        Me.fltUtility.Items.AddRange(New Object() {"None", "Common", "Rare", "Epic", "Legendary"})
+        Me.fltUtility.Name = "fltUtility"
+        Me.fltUtility.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.fltUtility.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
         '
         'DefFleet
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(7.0!, 17.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(679, 365)
-        Me.Controls.Add(Me.ComboBox5)
-        Me.Controls.Add(Me.ComboBox6)
-        Me.Controls.Add(Me.ComboBox7)
-        Me.Controls.Add(Me.TextBox2)
-        Me.Controls.Add(Me.ComboBox8)
-        Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.Button1)
+        Me.BackColor = System.Drawing.SystemColors.ControlDarkDark
+        Me.ClientSize = New System.Drawing.Size(856, 477)
+        Me.Controls.Add(Me.Panel1)
+        Me.Controls.Add(Me.btnBack)
+        Me.Controls.Add(Me.btnNext)
+        Me.Controls.Add(Me.cmbTarget)
         Me.Controls.Add(Me.Label6)
-        Me.Controls.Add(Me.ComboBox4)
-        Me.Controls.Add(Me.ComboBox3)
-        Me.Controls.Add(Me.ComboBox2)
-        Me.Controls.Add(Me.TextBox1)
-        Me.Controls.Add(Me.ComboBox1)
-        Me.Controls.Add(Me.Label5)
-        Me.Controls.Add(Me.Label4)
-        Me.Controls.Add(Me.Label3)
-        Me.Controls.Add(Me.Label2)
-        Me.Controls.Add(Me.Label1)
+        Me.Font = New System.Drawing.Font("Segoe UI", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
+        Me.Margin = New System.Windows.Forms.Padding(3, 4, 3, 4)
         Me.Name = "DefFleet"
-        Me.Text = "DefFleet"
+        Me.Text = "Defending Fleets"
+        CType(Me.dgFleetList, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.Panel1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-
     Friend WithEvents Label6 As Label
-    Friend WithEvents ComboBox4 As ComboBox
-    Friend WithEvents ComboBox3 As ComboBox
-    Friend WithEvents ComboBox2 As ComboBox
-    Friend WithEvents TextBox1 As TextBox
-    Friend WithEvents ComboBox1 As ComboBox
-    Friend WithEvents Label5 As Label
-    Friend WithEvents Label4 As Label
-    Friend WithEvents Label3 As Label
-    Friend WithEvents Label2 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents Button2 As Button
-    Friend WithEvents Button1 As Button
-    Friend WithEvents ComboBox5 As ComboBox
-    Friend WithEvents ComboBox6 As ComboBox
-    Friend WithEvents ComboBox7 As ComboBox
-    Friend WithEvents TextBox2 As TextBox
-    Friend WithEvents ComboBox8 As ComboBox
+    Friend WithEvents cmbTarget As ComboBox
+    Friend WithEvents btnNext As Button
+    Friend WithEvents btnBack As Button
+    Friend WithEvents dgFleetList As DataGridView
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents fltType As DataGridViewComboBoxColumn
+    Friend WithEvents fltAmount As DataGridViewTextBoxColumn
+    Friend WithEvents fltWorstCase As DataGridViewCheckBoxColumn
+    Friend WithEvents fltWorstCaseLevel As DataGridViewComboBoxColumn
+    Friend WithEvents fltHardPoint As DataGridViewComboBoxColumn
+    Friend WithEvents fltHullCard As DataGridViewComboBoxColumn
+    Friend WithEvents fltUtility As DataGridViewComboBoxColumn
 End Class

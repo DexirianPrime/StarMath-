@@ -1,106 +1,72 @@
 ﻿Public Class DefFleet
-
-
-
-    Dim i As Integer
-    Dim i2 As Integer
-
-    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
-        Me.Text = dfleet1type
-
+    Private Sub DefFleet_Close(sender As Object, e As EventArgs) Handles MyBase.FormClosing
+        Me.Hide()
+        Selector.Show()
     End Sub
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
-        Try
-            i = Integer.Parse(TextBox1.Text, Globalization.NumberStyles.Any)
-        Catch ex As Exception
-            Dim ToolTip1 As New ToolTip
-            ToolTip1.IsBalloon = True
-            ToolTip1.UseFading = True
-            ToolTip1.ToolTipIcon = ToolTipIcon.Error
-            ToolTip1.ToolTipTitle = "Please enter a number between 1 and 1500"
-            ToolTip1.Show("Style is not an Integer value", TextBox1, New Point(0, -80), 2500)
-            TextBox1.Text = ""
-        End Try
-        If i >= 1 AndAlso i <= 1500 Then
-            dfleet1count = i
-            Me.Text = dfleet1count.ToString
-        Else
-            Dim ToolTip1 As New ToolTip
-            ToolTip1.IsBalloon = True
-            ToolTip1.UseFading = True
-            ToolTip1.ToolTipIcon = ToolTipIcon.Error
-            ToolTip1.ToolTipTitle = "Please enter a number between 1 and 1500"
-            ToolTip1.Show("Value was out of range", TextBox1, New Point(0, -80), 2500)
-            TextBox1.Text = ""
+    Private Sub DefFleet_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        ' Make sure we've loaded everything
+        If cmbTarget.Items.Count = 0 Then
+            cmbTarget.Items.Add("? - Player")
+
+            For Each enIt In Selector.enemies
+                cmbTarget.Items.Add(enIt.Value.level.ToString() + " - " + enIt.Key)
+            Next
+        End If
+
+        ' Set our default
+        If cmbTarget.SelectedIndex = -1 Then
+            cmbTarget.SelectedIndex = 0
         End If
     End Sub
 
-    Private Sub ComboBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox2.SelectedIndexChanged
-        Me.Text = dfleet1hard
-    End Sub
-
-    Private Sub ComboBox3_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox3.SelectedIndexChanged
-        Me.Text = dfleet1hull
-    End Sub
-
-    Private Sub ComboBox4_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox4.SelectedIndexChanged
-        Me.Text = dfleet1card
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
         Me.Hide()
-        Fleet.Show()
+        Selector.Show()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
         Me.Hide()
-        Tfleet2hp.Show()
+        Results.Show()
     End Sub
 
-    Private Sub ComboBox8_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox8.SelectedIndexChanged
-        Me.Text = dfleet2type
+    Private threatByLevel As String() = {"None", "Common", "Rare", "Epic", "Legendary"}
 
+    ' They are going up against something different
+    ' TODO:  If they are in player mode, save their current grid so we can come back to it if they reselect it
+    Private Sub cmbTarget_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbTarget.SelectedIndexChanged
+        dgFleetList.Rows.Clear()
+        dgFleetList.Refresh()
+
+        If cmbTarget.SelectedIndex <> 0 Then
+            Dim sel As String = cmbTarget.Items(cmbTarget.SelectedIndex).ToString().Substring(4)
+            Dim lvl As Integer = CInt(cmbTarget.Items(cmbTarget.SelectedIndex).ToString().Substring(0, 1))
+
+            Dim el = Selector.enemies(sel)
+            Dim r = dgFleetList.Rows.Count - 1
+
+            For Each _e In el.LineItems
+                dgFleetList.Rows.Insert(r, _e.Key, _e.Value, True, threatByLevel(lvl), threatByLevel(lvl), threatByLevel(lvl), threatByLevel(lvl - 1))
+                MakeReadOnly(r, True)
+            Next
+        End If
+
+        dgFleetList.Refresh()
     End Sub
 
-    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
-        Try
-            i2 = Integer.Parse(TextBox2.Text, Globalization.NumberStyles.Any)
-        Catch ex As Exception
-            Dim ToolTip1 As New ToolTip
-            ToolTip1.IsBalloon = True
-            ToolTip1.UseFading = True
-            ToolTip1.ToolTipIcon = ToolTipIcon.Error
-            ToolTip1.ToolTipTitle = "Please enter a number between 1 and 1500"
-            ToolTip1.Show("Style is not an Integer value", TextBox2, New Point(0, -80), 2500)
-            TextBox2.Text = ""
-        End Try
-        If i2 >= 1 AndAlso i2 <= 1500 Then
-            dfleet2count = i2
-            Me.Text = dfleet2count.ToString
-        Else
-            Dim ToolTip1 As New ToolTip
-            ToolTip1.IsBalloon = True
-            ToolTip1.UseFading = True
-            ToolTip1.ToolTipIcon = ToolTipIcon.Error
-            ToolTip1.ToolTipTitle = "Please enter a number between 1 and 1500"
-            ToolTip1.Show("Value was out of range", TextBox2, New Point(0, -80), 2500)
-            TextBox2.Text = ""
+    ' TODO: Put code in here for worst case Player level
+    Private Sub dgFleetList_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles dgFleetList.CellContentClick
+        If e.ColumnIndex = 2 Then
+
+
         End If
     End Sub
 
-    Private Sub ComboBox7_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox7.SelectedIndexChanged
-        Me.Text = dfleet2hard
-
-    End Sub
-
-    Private Sub ComboBox6_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox6.SelectedIndexChanged
-        Me.Text = dfleet2hull
-
-    End Sub
-
-    Private Sub ComboBox5_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox5.SelectedIndexChanged
-        Me.Text = dfleet2card
-
+    Private Sub MakeReadOnly(_r As Integer, _ro As Boolean)
+        dgFleetList.Rows(_r).Cells(2).ReadOnly = _ro
+        dgFleetList.Rows(_r).Cells(3).ReadOnly = _ro
+        dgFleetList.Rows(_r).Cells(4).ReadOnly = _ro
+        dgFleetList.Rows(_r).Cells(5).ReadOnly = _ro
+        dgFleetList.Rows(_r).Cells(6).ReadOnly = _ro
     End Sub
 End Class
