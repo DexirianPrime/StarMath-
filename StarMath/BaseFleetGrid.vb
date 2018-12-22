@@ -40,7 +40,7 @@
                         ToolTip1.UseFading = True
                         ToolTip1.ToolTipIcon = ToolTipIcon.Error
                         ToolTip1.ToolTipTitle = "Please enter a number between 1 and 1500"
-                        ToolTip1.Show("Value was out of range", Me, 20, 20)
+                        ToolTip1.Show("Value was out of range", Me, 0, 20)
                         dgfleets.Rows(e.RowIndex).Cells("FleetSize").Value = ""
                     End If
                 Catch ex As Exception
@@ -49,7 +49,7 @@
                     ToolTip1.UseFading = True
                     ToolTip1.ToolTipIcon = ToolTipIcon.Error
                     ToolTip1.ToolTipTitle = "Please enter a number between 1 and 1500"
-                    ToolTip1.Show("Style is not an Integer value", Me, 20, 20)
+                    ToolTip1.Show("Style is not an Integer value", Me, 0, 20)
                     dgfleets.Rows(e.RowIndex).Cells("FleetSize").Value = ""
                 End Try
             End If

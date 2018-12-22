@@ -64,5 +64,7 @@ Public Class FleetStats
         DamageBoost = 0
         CombinedHP = 0
         CombinedDamage = 0
+        TakenDamage = 0
+        Losses = 0
     End Sub
 End Class
