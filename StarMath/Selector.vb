@@ -60,6 +60,7 @@ Public Class FleetStats
     Public TakenDamage As Int32
     Public Losses As Int32
     Public FleetAttacker As Boolean
+    Public TotalLosses As Int32
 
 
 
@@ -72,6 +73,7 @@ Public Class FleetStats
         CombinedDamage = 0
         TakenDamage = 0
         Losses = 0
+        TotalLosses = 0
     End Sub
 End Class
 
