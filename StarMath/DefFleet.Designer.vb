@@ -32,7 +32,7 @@ Partial Class DefFleet
         '
         Me.Label6.AutoSize = True
         Me.Label6.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label6.Location = New System.Drawing.Point(426, 9)
+        Me.Label6.Location = New System.Drawing.Point(390, 9)
         Me.Label6.Name = "Label6"
         Me.Label6.Size = New System.Drawing.Size(185, 24)
         Me.Label6.TabIndex = 23
@@ -60,7 +60,7 @@ Partial Class DefFleet
         '
         Me.BaseFleetGrid1.Location = New System.Drawing.Point(12, 46)
         Me.BaseFleetGrid1.Name = "BaseFleetGrid1"
-        Me.BaseFleetGrid1.Size = New System.Drawing.Size(970, 167)
+        Me.BaseFleetGrid1.Size = New System.Drawing.Size(970, 278)
         Me.BaseFleetGrid1.TabIndex = 31
         '
         'DefFleet
@@ -73,7 +73,7 @@ Partial Class DefFleet
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.Label6)
         Me.Name = "DefFleet"
-        Me.Text = "DefFleet"
+        Me.Text = "Defenders"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

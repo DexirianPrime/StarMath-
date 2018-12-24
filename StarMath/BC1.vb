@@ -10,7 +10,7 @@
 
     Dim Userint2 As Integer
 
-    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs) Handles TextBox1.TextChanged
+    Private Sub TextBox1_TextChanged(sender As Object, e As EventArgs)
 
         Try
             i = Integer.Parse(TextBox1.Text, Globalization.NumberStyles.Any)
@@ -40,7 +40,7 @@
     End Sub
 
 
-    Private Sub TextBox2_TextChanged_1(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+    Private Sub TextBox2_TextChanged_1(sender As Object, e As EventArgs)
         Try
             i2 = Integer.Parse(TextBox2.Text, Globalization.NumberStyles.Any)
         Catch ex As Exception

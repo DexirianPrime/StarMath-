@@ -37,12 +37,8 @@ Partial Class Tfleet2hp
         Me.Label16 = New System.Windows.Forms.Label()
         Me.Label17 = New System.Windows.Forms.Label()
         Me.Label27 = New System.Windows.Forms.Label()
-        Me.Label10 = New System.Windows.Forms.Label()
-        Me.Label11 = New System.Windows.Forms.Label()
-        Me.Label13 = New System.Windows.Forms.Label()
-        Me.Label18 = New System.Windows.Forms.Label()
-        Me.Label19 = New System.Windows.Forms.Label()
-        Me.Label20 = New System.Windows.Forms.Label()
+        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
@@ -194,71 +190,20 @@ Partial Class Tfleet2hp
         Me.Label27.TabIndex = 38
         Me.Label27.Text = "Defending Fleets"
         '
-        'Label10
+        'DataGridView1
         '
-        Me.Label10.AutoSize = True
-        Me.Label10.Location = New System.Drawing.Point(18, 84)
-        Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(45, 13)
-        Me.Label10.TabIndex = 39
-        Me.Label10.Text = "Label10"
-        '
-        'Label11
-        '
-        Me.Label11.AutoSize = True
-        Me.Label11.Location = New System.Drawing.Point(111, 84)
-        Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(45, 13)
-        Me.Label11.TabIndex = 40
-        Me.Label11.Text = "Label11"
-        '
-        'Label13
-        '
-        Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(186, 84)
-        Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(45, 13)
-        Me.Label13.TabIndex = 41
-        Me.Label13.Text = "Label13"
-        '
-        'Label18
-        '
-        Me.Label18.AutoSize = True
-        Me.Label18.Location = New System.Drawing.Point(290, 84)
-        Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(45, 13)
-        Me.Label18.TabIndex = 42
-        Me.Label18.Text = "Label18"
-        '
-        'Label19
-        '
-        Me.Label19.AutoSize = True
-        Me.Label19.Location = New System.Drawing.Point(365, 84)
-        Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(45, 13)
-        Me.Label19.TabIndex = 43
-        Me.Label19.Text = "Label19"
-        '
-        'Label20
-        '
-        Me.Label20.AutoSize = True
-        Me.Label20.Location = New System.Drawing.Point(441, 84)
-        Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(45, 13)
-        Me.Label20.TabIndex = 44
-        Me.Label20.Text = "Label20"
+        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView1.Location = New System.Drawing.Point(21, 96)
+        Me.DataGridView1.Name = "DataGridView1"
+        Me.DataGridView1.Size = New System.Drawing.Size(1051, 342)
+        Me.DataGridView1.TabIndex = 39
         '
         'Tfleet2hp
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1097, 450)
-        Me.Controls.Add(Me.Label20)
-        Me.Controls.Add(Me.Label19)
-        Me.Controls.Add(Me.Label18)
-        Me.Controls.Add(Me.Label13)
-        Me.Controls.Add(Me.Label11)
-        Me.Controls.Add(Me.Label10)
+        Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.Label27)
         Me.Controls.Add(Me.Label9)
         Me.Controls.Add(Me.Label12)
@@ -276,6 +221,7 @@ Partial Class Tfleet2hp
         Me.Controls.Add(Me.Label1)
         Me.Name = "Tfleet2hp"
         Me.Text = "Battle Results"
+        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -296,10 +242,5 @@ Partial Class Tfleet2hp
     Friend WithEvents Label16 As Label
     Friend WithEvents Label17 As Label
     Friend WithEvents Label27 As Label
-    Friend WithEvents Label10 As Label
-    Friend WithEvents Label11 As Label
-    Friend WithEvents Label13 As Label
-    Friend WithEvents Label18 As Label
-    Friend WithEvents Label19 As Label
-    Friend WithEvents Label20 As Label
+    Friend WithEvents DataGridView1 As DataGridView
 End Class

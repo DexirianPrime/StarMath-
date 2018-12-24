@@ -1,4 +1,9 @@
-﻿
+﻿Imports System.Xml
+Imports System.Xml.Linq
+Imports StarMath
+
+
+
 Public Module globalfleet
 
     Public attacktype As String
@@ -6,6 +11,7 @@ Public Module globalfleet
     Public dfleetcount As Int16
     Public fleetarray As FleetBase()
     Public dfleetarray As FleetBase()
+
 
 
 End Module
@@ -68,3 +74,7 @@ Public Class FleetStats
         Losses = 0
     End Sub
 End Class
+
+
+
+

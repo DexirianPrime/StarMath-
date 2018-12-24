@@ -77,12 +77,12 @@ Partial Class BaseFleetGrid
         Me.FleetCharacter.Name = "FleetCharacter"
         Me.FleetCharacter.Width = 200
         '
-        'UserControl1
+        'BaseFleetGrid
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.Controls.Add(Me.dgfleets)
-        Me.Name = "UserControl1"
+        Me.Name = "BaseFleetGrid"
         Me.Size = New System.Drawing.Size(936, 167)
         CType(Me.dgfleets, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

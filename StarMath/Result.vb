@@ -199,14 +199,21 @@ Public Class Tfleet2hp
 
     Private Sub CalculateStatPenalty(ByRef stats As FleetStats, FleetType As String, Attacker As Boolean)
         If Attacker Then
-            If FleetType = "Patrol Ship" Or FleetType = "Frigate" Then
+            If FleetType = "Patrol Ship" Or FleetType = "Frigate" Or FleetType = "Dreadnaught" Then
                 stats.HP /= 2
                 stats.Damage /= 2
             End If
         Else
-            If FleetType = "Corvette" Or FleetType = "Destroyer" Or FleetType = "Gunship" Then
+            If FleetType = "Corvette" Or FleetType = "Destroyer" Or FleetType = "Gunship" Or FleetType = "Carrier" Then
                 stats.HP /= 2
                 stats.Damage /= 2
+            End If
+        End If
+        If attacktype = "raid" Then
+            If Not Attacker Then
+                stats.CombinedDamage *= 1.1
+                stats.CombinedHP *= 1.1
+
             End If
         End If
     End Sub
@@ -237,10 +244,10 @@ Public Class Tfleet2hp
         Return result
     End Function
 
-
     Function Fight(ByVal ParamArray FinalStats()) As FleetStats()
 
         For i As Integer = 0 To FinalStats.Count() - 1
+
             If Not (FinalStats(i).FleetAttacker) Then
                 FinalStats(i).TakenDamage = (FinalStats(i).CombinedHP / ArmadaDefenseHP) * ArmadaAttackDamage
             Else
@@ -250,18 +257,18 @@ Public Class Tfleet2hp
             If (FinalStats(i).TakenDamage > FinalStats(i).HP) Then
                 FinalStats(i).Losses = FinalStats(i).TakenDamage \ FinalStats(i).HP
             End If
+
         Next
         Return FinalStats
 
     End Function
 
 
-    Private Sub GenerateText(ByVal ParamArray Values() As FleetStats)
 
 
 
 
-    End Sub
+
 
 
     Private Sub Result_Load(sender As Object, e As EventArgs) Handles MyBase.Load
@@ -271,6 +278,7 @@ Public Class Tfleet2hp
         defstats = Calculate(dfleetarray)
         AttackFleets = Fight(stats)
         DefenseFleets = Fight(defstats)
+        DataGridView1.DataSource = New ArrayDataView(AttackFleets)
 
 
     End Sub
@@ -278,9 +286,6 @@ Public Class Tfleet2hp
     Private Sub Tfleet2hp_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Selector.Close()
     End Sub
-
-
-
 
 
 End Class

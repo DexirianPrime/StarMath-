@@ -33,4 +33,8 @@
     Private Sub DefFleet_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Selector.Close()
     End Sub
+
+    Private Sub BaseFleetGrid1_Load(sender As Object, e As EventArgs) Handles BaseFleetGrid1.Load
+
+    End Sub
 End Class
