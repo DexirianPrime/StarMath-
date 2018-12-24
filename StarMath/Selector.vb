@@ -61,6 +61,8 @@ Public Class FleetStats
     Public Losses As Int32
     Public FleetAttacker As Boolean
     Public TotalLosses As Int32
+    Public Type As String
+
 
 
 
