@@ -1,4 +1,5 @@
 ﻿Public Class frmFleet
+
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
         fleetarray = BaseFleetGrid1.StoreValues(True)
         dfleetarray = BaseFleetGrid2.StoreValues(False)
