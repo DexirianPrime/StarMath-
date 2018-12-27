@@ -51,6 +51,7 @@ Partial Class Tfleet2hp
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Type, Me.StartingCount, Me.HP, Me.Damage, Me.CombinedHP, Me.CombinedDamage, Me.FleetAttacker, Me.TotalLosses, Me.count2})
+        Me.DataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.DataGridView1.Location = New System.Drawing.Point(12, 25)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(1170, 478)
