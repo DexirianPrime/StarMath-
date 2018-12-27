@@ -267,6 +267,7 @@ Public Class Tfleet2hp
         'Set Temp Variables to 0
         ArmadaDefenseHPR = 0
         ArmadaDefenseDamageR = 0
+
         'Apply Defense Firepower Boost in case of raid on temp variables
         If attacktype = "raid" Then
             ArmadaDefenseHPR = ArmadaDefenseHP * 1.1
@@ -425,6 +426,8 @@ Public Class Tfleet2hp
     Private Sub Result_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Init Temp FleetStats object array
         Dim stats, defstats As FleetStats()
+
+
         'Calculate Final Stats of every fleet
         stats = Calculate(fleetarray)
         defstats = Calculate(dfleetarray)
@@ -452,8 +455,15 @@ Public Class Tfleet2hp
         DataGridView1.Rows.Add("Defending Armada", "", "", "", ArmadaDefenseHPR, ArmadaDefenseDamageR)
     End Sub
 
-    Private Sub Tfleet2hp_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
-        Selector.Close()
+
+    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+        Me.Hide()
+        Selector.Show()
+    End Sub
+
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Me.Close()
+        frmFleet.Show()
     End Sub
 
 
