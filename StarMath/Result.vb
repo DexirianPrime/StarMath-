@@ -313,7 +313,7 @@ Public Class Tfleet2hp
                     Else
                         FinalStats(i).CombinedHP -= (roundstats.Losses * roundstats.HP)
                         FinalStats(i).CombinedDamage -= (roundstats.Losses * roundstats.Damage)
-                        FinalStats(i).Count -= roundstats.Losses
+
                     End If
                     FinalStats(i).Count2 -= FinalStats(i).Losses
                     FinalStats(i).Losses = 0
@@ -354,7 +354,6 @@ Public Class Tfleet2hp
                         Else
                             FinalStats(i).CombinedHP -= (roundstats.Losses * roundstats.HP)
                             FinalStats(i).CombinedDamage -= (roundstats.Losses * roundstats.Damage)
-                            FinalStats(i).Count -= roundstats.Losses
                         End If
                         FinalStats(i).Count2 -= FinalStats(i).Losses
                         FinalStats(i).Losses = 0
@@ -402,7 +401,7 @@ Public Class Tfleet2hp
                         Else
                             FinalStats(i).CombinedHP -= (roundstats.Losses * roundstats.HP)
                             FinalStats(i).CombinedDamage -= (roundstats.Losses * roundstats.Damage)
-                            FinalStats(i).Count -= roundstats.Losses
+
                         End If
                         FinalStats(i).Count2 -= FinalStats(i).Losses
                         FinalStats(i).Losses = 0
