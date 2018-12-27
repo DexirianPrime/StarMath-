@@ -1,4 +1,5 @@
 ﻿Public Class BaseFleetGrid
+
     Public Function StoreValues(Attacker As Boolean) As FleetBase()
         Dim fleets(dgfleets.RowCount - 2) As FleetBase
         For i As Integer = 0 To dgfleets.RowCount - 2
@@ -55,4 +56,6 @@
             End If
         End If
     End Sub
+
+
 End Class
