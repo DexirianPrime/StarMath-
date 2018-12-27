@@ -2,7 +2,7 @@
 Battle and Harvest Calculator
 
 Working base for a StarBorne Battle Calculator. Plan to add a Harvest calculator later as well.
-As of now, fleet character cards are not implemented and will not provide the bonuses. The firepower boosts to defenders on raids is applied, all rounds are calculated, and the By Our Blood policy checker also works.
+The firepower boosts to defenders on raids is applied, all rounds are calculated, and the By Our Blood policy checker also works.
 
 How to use :
 Run the setup.exe
