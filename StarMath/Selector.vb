@@ -11,6 +11,7 @@ Public Module globalfleet
     Public fleetarray As FleetBase()
     Public dfleetarray As FleetBase()
     Public ByOurBlood As Boolean = False
+    Public DefSupression As Int32 = 0
 End Module
 
 
@@ -57,6 +58,13 @@ Public Class FleetStats
     Public SCombinedDamage As Int64
     Public Count2 As Int16
     Public Count3 As Int16
+    Public TCombinedHP As Int64
+    Public TCombinedDamage As Int64
+    Public T1CombinedHP As Int64
+    Public T1CombinedDamage As Int64
+    Public THP As Int64
+    Public TDamage As Int64
+
     'Init Variables to 0
     Public Sub New()
         HP = 0
@@ -73,7 +81,13 @@ Public Class FleetStats
         SCombinedDamage = 0
         Count2 = 0
         Count3 = 0
+        TCombinedHP = 0
+        TCombinedDamage = 0
+        T1CombinedHP = 0
+        T1CombinedDamage = 0
+        THP = 0
     End Sub
+
 End Class
 
 

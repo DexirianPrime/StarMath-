@@ -32,6 +32,8 @@ Public Class Tfleet2hp
     Private ArmadaDefenseDamageR As Integer = 0
     Private ConvertedFinal As Array(,)
     Private ConvertedFinalD As Array(,)
+    Private SupressionTaken As Int32
+
     Private j As Int32 = 0
 
     Sub GetBaseValues(ByRef base As FleetBase, ByRef stats As FleetStats)
@@ -275,6 +277,7 @@ Public Class Tfleet2hp
             'New Temporary object array for combat stats
             Dim roundstats As FleetStats = New FleetStats()
             roundstats = FinalStats(i)
+            SupressionTaken = 0
             Select Case j
                     'Combat Round 0               
                 Case 0
@@ -283,15 +286,19 @@ Public Class Tfleet2hp
                     ArmadaAttackHPR0 = ArmadaAttackHP * 0.72
                     ArmadaDefenseDamageR0 = ArmadaDefenseDamageR * 0.72
                     ArmadaDefenseHPR0 = ArmadaDefenseHPR * 0.72
+                    roundstats.TCombinedHP = roundstats.CombinedHP * 0.72
+                    roundstats.TCombinedDamage = roundstats.CombinedDamage * 0.72
+                    roundstats.THP = roundstats.HP * 0.72
+                    roundstats.TDamage = roundstats.Damage * 0.72
                     'Calculate Damage taken for every fleet
                     If Not (roundstats.FleetAttacker) Then
-                        roundstats.TakenDamage = (roundstats.CombinedHP / ArmadaDefenseHPR0) * ArmadaAttackDamageR0
+                        roundstats.TakenDamage = (roundstats.TCombinedHP / ArmadaDefenseHPR0) * ArmadaAttackDamageR0
                     Else
-                        roundstats.TakenDamage = (roundstats.CombinedHP / ArmadaAttackHPR0) * ArmadaDefenseDamageR0
+                        roundstats.TakenDamage = (roundstats.TCombinedHP / ArmadaAttackHPR0) * ArmadaDefenseDamageR0
                     End If
                     'Calculate Losses for every fleet
-                    If (roundstats.TakenDamage > roundstats.HP) Then
-                        roundstats.Losses = roundstats.TakenDamage \ roundstats.HP
+                    If (roundstats.TakenDamage > roundstats.THP) Then
+                        roundstats.Losses = roundstats.TakenDamage \ roundstats.THP
                     End If
                     If (roundstats.Losses > roundstats.Count) Then
                         roundstats.Losses = roundstats.Count
@@ -320,7 +327,9 @@ Public Class Tfleet2hp
                     End If
                     'Combat Round 1
                 Case 1
+
                     If ArmadaDefenseDamageR1 > 0 And ArmadaAttackDamageR1 > 0 Then
+
                         'Calculate Damage taken for every fleet
                         If Not (roundstats.FleetAttacker) Then
                             roundstats.TakenDamage = (roundstats.CombinedHP / ArmadaDefenseHPR1) * ArmadaAttackDamageR1
@@ -366,15 +375,19 @@ Public Class Tfleet2hp
                         ArmadaAttackHPR3 = ArmadaAttackHPR2 * 1.66
                         ArmadaDefenseDamageR3 = ArmadaDefenseDamageR2 * 1.66
                         ArmadaDefenseHPR3 = ArmadaDefenseHPR2 * 1.66
+                        roundstats.TCombinedHP = roundstats.CombinedHP * 1.66
+                        roundstats.TCombinedDamage = roundstats.CombinedDamage * 1.66
+                        roundstats.THP = roundstats.HP * 1.66
+                        roundstats.TDamage = roundstats.Damage * 1.66
                         'Calculate Damage taken for every fleet
                         If Not (roundstats.FleetAttacker) Then
-                            roundstats.TakenDamage = (roundstats.CombinedHP / ArmadaDefenseHPR3) * ArmadaAttackDamageR3
+                            roundstats.TakenDamage = (roundstats.TCombinedHP / ArmadaDefenseHPR3) * ArmadaAttackDamageR3
                         Else
-                            roundstats.TakenDamage = (roundstats.CombinedHP / ArmadaAttackHPR3) * ArmadaDefenseDamageR3
+                            roundstats.TakenDamage = (roundstats.TCombinedHP / ArmadaAttackHPR3) * ArmadaDefenseDamageR3
                         End If
                         'Calculate Losses for every fleet
-                        If (roundstats.TakenDamage > roundstats.HP) Then
-                            roundstats.Losses = roundstats.TakenDamage \ roundstats.HP
+                        If (roundstats.TakenDamage > roundstats.THP) Then
+                            roundstats.Losses = roundstats.TakenDamage \ roundstats.THP
                         End If
                         If (roundstats.Losses > roundstats.Count) Then
                             roundstats.Losses = roundstats.Count
@@ -399,6 +412,16 @@ Public Class Tfleet2hp
         'Return final values
         Return FinalStats
     End Function
+
+    'Function Suppression(ByVal ParamArray FinalStats())
+    '    If FinalStats.FleetAttacker Then
+    '        If DefSupression > FinalStats.HP Then
+    '            SupressionTaken = (FinalStats.TCombinedHP / ArmadaAttackHPR0)
+    '            ArmadaAttackDamageR0 -= (SupressionTaken \ FinalStats.THP) * FinalStats.TDamage
+    '        End If
+    '    End If
+    'End Function
+
 
     Private Sub Result_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         'Init Temp FleetStats object array
