@@ -28,6 +28,8 @@ Public Class Tfleet2hp
     Private ArmadaAttackDamageR3 As Integer = 0
     Private ArmadaDefenseHPR3 As Integer = 0
     Private ArmadaDefenseDamageR3 As Integer = 0
+    Private ArmadaDefenseHPR As Integer = 0
+    Private ArmadaDefenseDamageR As Integer = 0
     Private j As Int32 = 0
 
 
@@ -215,15 +217,18 @@ Public Class Tfleet2hp
     Private Sub FinalStats(ByRef stats As FleetStats, FleetCount As Int32)
         stats.HP += stats.HPBoost
         stats.Damage += stats.DamageBoost
-        stats.CombinedHP = stats.HP * FleetCount
-        stats.CombinedDamage = stats.Damage * FleetCount
     End Sub
 
     Private Sub CalculateStatPenalty(ByRef stats As FleetStats, FleetType As String, Attacker As Boolean)
+
         If Attacker Then
             If FleetType = "Patrol Ship" Or FleetType = "Frigate" Or FleetType = "Dreadnaught" Then
+
                 stats.HP /= 2
-                stats.Damage /= 2
+                If Not ByOurBlood Then
+                    stats.Damage /= 2
+                End If
+
             End If
         Else
             If FleetType = "Corvette" Or FleetType = "Destroyer" Or FleetType = "Gunship" Or FleetType = "Carrier" Then
@@ -231,6 +236,9 @@ Public Class Tfleet2hp
                 stats.Damage /= 2
             End If
         End If
+
+        stats.CombinedHP = stats.HP * fleetcount
+        stats.CombinedDamage = stats.Damage * fleetcount
 
     End Sub
 
@@ -262,10 +270,13 @@ Public Class Tfleet2hp
 
     Function Fight(ByVal ParamArray FinalStats())
 
+        ArmadaDefenseHPR = 0
+        ArmadaDefenseDamageR = 0
+
         'Apply Defense Firepower Boost in case of raid
         If attacktype = "raid" Then
-            ArmadaDefenseDamage *= 1.1
-            ArmadaDefenseHP *= 1.1
+            ArmadaDefenseHPR = ArmadaDefenseHP * 1.1
+            ArmadaDefenseDamageR = ArmadaDefenseDamage * 1.1
 
         End If
 
@@ -285,11 +296,11 @@ Public Class Tfleet2hp
                         'Set R0 variable from current armada stats according to round 1 boosts
                         ArmadaAttackDamageR0 = ArmadaAttackDamage * 0.72
                         ArmadaAttackHPR0 = ArmadaAttackHP * 0.72
-                        ArmadaDefenseDamageR0 = ArmadaDefenseDamage * 0.72
-                        ArmadaDefenseHPR0 = ArmadaDefenseHP * 0.72
+                    ArmadaDefenseDamageR0 = ArmadaDefenseDamageR * 0.72
+                    ArmadaDefenseHPR0 = ArmadaDefenseHPR * 0.72
 
-                        'Calculate Damage taken for every fleet
-                        If Not (FinalStats(i).FleetAttacker) Then
+                    'Calculate Damage taken for every fleet
+                    If Not (FinalStats(i).FleetAttacker) Then
                             roundstats.TakenDamage = (roundstats.CombinedHP / ArmadaDefenseHPR0) * ArmadaAttackDamageR0
                         Else
                             roundstats.TakenDamage = (roundstats.CombinedHP / ArmadaAttackHPR0) * ArmadaDefenseDamageR0

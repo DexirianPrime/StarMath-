@@ -11,6 +11,8 @@ Public Module globalfleet
     Public dfleetcount As Int16
     Public fleetarray As FleetBase()
     Public dfleetarray As FleetBase()
+    Public ByOurBlood As Boolean = False
+
 
 
 
