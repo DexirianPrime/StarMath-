@@ -34,7 +34,7 @@
                     Dim i2 As Integer
                     i2 = Integer.Parse(dgfleets.Rows(e.RowIndex).Cells("FleetSize").Value, Globalization.NumberStyles.Any)
 
-                    If i2 < 1 AndAlso i2 > 1500 Then
+                    If i2 < 1 Or i2 > 1500 Then
                         Dim ToolTip1 As New ToolTip
                         ToolTip1.IsBalloon = True
                         ToolTip1.UseFading = True
