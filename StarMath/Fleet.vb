@@ -41,10 +41,6 @@
         Selector.Close()
     End Sub
 
-    Private Sub frmFleet_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
-
     Private Sub cbByOurBlood_CheckedChanged(sender As Object, e As EventArgs) Handles cbByOurBlood.CheckedChanged
         ByOurBlood = cbByOurBlood.Checked
     End Sub

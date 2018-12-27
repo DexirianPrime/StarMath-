@@ -83,6 +83,7 @@ Partial Class frmFleet
         'BaseFleetGrid2
         '
         Me.BaseFleetGrid2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.BaseFleetGrid2.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange
         Me.BaseFleetGrid2.Location = New System.Drawing.Point(35, 410)
         Me.BaseFleetGrid2.Name = "BaseFleetGrid2"
         Me.BaseFleetGrid2.Size = New System.Drawing.Size(925, 278)

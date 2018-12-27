@@ -64,7 +64,7 @@ Public Class FleetStats
     Public T1CombinedDamage As Int64
     Public THP As Int64
     Public TDamage As Int64
-
+    Public PercentageTaken As Decimal
     'Init Variables to 0
     Public Sub New()
         HP = 0
