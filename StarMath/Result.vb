@@ -283,12 +283,12 @@ Public Class Tfleet2hp
                 Case 0
                     'Set R0 variable from current armada stats according to round 1 boosts
                     ArmadaAttackDamageR0 = ArmadaAttackDamage * 0.72
-                    ArmadaAttackHPR0 = ArmadaAttackHP * 0.72
+                    ArmadaAttackHPR0 = ArmadaAttackHP
                     ArmadaDefenseDamageR0 = ArmadaDefenseDamageR * 0.72
-                    ArmadaDefenseHPR0 = ArmadaDefenseHPR * 0.72
-                    roundstats.TCombinedHP = roundstats.CombinedHP * 0.72
+                    ArmadaDefenseHPR0 = ArmadaDefenseHPR
+                    roundstats.TCombinedHP = roundstats.CombinedHP
                     roundstats.TCombinedDamage = roundstats.CombinedDamage * 0.72
-                    roundstats.THP = roundstats.HP * 0.72
+                    roundstats.THP = roundstats.HP
                     roundstats.TDamage = roundstats.Damage * 0.72
                     'Calculate Damage taken for every fleet
                     If Not (roundstats.FleetAttacker) Then
@@ -372,12 +372,12 @@ Public Class Tfleet2hp
                     If ArmadaDefenseDamageR2 > 0 And ArmadaAttackDamageR2 > 0 Then
                         'Set R3 variable from current armada stats according to round 1 boosts
                         ArmadaAttackDamageR3 = ArmadaAttackDamageR2 * 1.66
-                        ArmadaAttackHPR3 = ArmadaAttackHPR2 * 1.66
+                        ArmadaAttackHPR3 = ArmadaAttackHPR2
                         ArmadaDefenseDamageR3 = ArmadaDefenseDamageR2 * 1.66
-                        ArmadaDefenseHPR3 = ArmadaDefenseHPR2 * 1.66
-                        roundstats.TCombinedHP = roundstats.CombinedHP * 1.66
+                        ArmadaDefenseHPR3 = ArmadaDefenseHPR2
+                        roundstats.TCombinedHP = roundstats.CombinedHP
                         roundstats.TCombinedDamage = roundstats.CombinedDamage * 1.66
-                        roundstats.THP = roundstats.HP * 1.66
+                        roundstats.THP = roundstats.HP
                         roundstats.TDamage = roundstats.Damage * 1.66
                         'Calculate Damage taken for every fleet
                         If Not (roundstats.FleetAttacker) Then
