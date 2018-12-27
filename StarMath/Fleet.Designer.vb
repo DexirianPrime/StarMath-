@@ -26,6 +26,8 @@ Partial Class frmFleet
         Me.btnBack = New System.Windows.Forms.Button()
         Me.btnNext = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'BaseFleetGrid1
@@ -66,11 +68,32 @@ Partial Class frmFleet
         Me.Label6.TabIndex = 24
         Me.Label6.Text = "ATTACKING FLEET"
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label1.Location = New System.Drawing.Point(12, 350)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(89, 13)
+        Me.Label1.TabIndex = 25
+        Me.Label1.Text = "By Our Blood I"
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(107, 350)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
+        Me.CheckBox1.TabIndex = 26
+        Me.CheckBox1.UseVisualStyleBackColor = True
+        '
         'frmFleet
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1006, 380)
+        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnBack)
@@ -86,4 +109,6 @@ Partial Class frmFleet
     Friend WithEvents btnBack As Button
     Friend WithEvents btnNext As Button
     Friend WithEvents Label6 As Label
+    Friend WithEvents Label1 As Label
+    Friend WithEvents CheckBox1 As CheckBox
 End Class

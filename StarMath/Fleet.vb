@@ -32,4 +32,11 @@
     Private Sub frmFleet_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed
         Selector.Close()
     End Sub
+
+    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
+        If Not ByOurBlood Then
+            ByOurBlood = True
+
+        End If
+    End Sub
 End Class
