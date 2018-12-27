@@ -30,10 +30,14 @@ Public Class Tfleet2hp
     Private ArmadaDefenseDamageR3 As Integer = 0
     Private ArmadaDefenseHPR As Integer = 0
     Private ArmadaDefenseDamageR As Integer = 0
+    Private ConvertedFinal As Array(,)
+    Private ConvertedFinalD As Array(,)
     Private j As Int32 = 0
 
 
     Sub GetBaseValues(ByRef base As FleetBase, ByRef stats As FleetStats)
+        stats.Count = base.FleetCount
+        stats.Count2 = base.FleetCount
         Select Case base.FleetType
 
             Case "Industrial"
@@ -219,7 +223,7 @@ Public Class Tfleet2hp
         stats.Damage += stats.DamageBoost
     End Sub
 
-    Private Sub CalculateStatPenalty(ByRef stats As FleetStats, FleetType As String, Attacker As Boolean)
+    Private Sub CalculateStatPenalty(ByRef stats As FleetStats, FleetType As String, Attacker As Boolean, FleetCount As Integer)
 
         If Attacker Then
             If FleetType = "Patrol Ship" Or FleetType = "Frigate" Or FleetType = "Dreadnaught" Then
@@ -237,8 +241,8 @@ Public Class Tfleet2hp
             End If
         End If
 
-        stats.CombinedHP = stats.HP * fleetcount
-        stats.CombinedDamage = stats.Damage * fleetcount
+        stats.CombinedHP = stats.HP * FleetCount
+        stats.CombinedDamage = stats.Damage * FleetCount
 
     End Sub
 
@@ -250,7 +254,7 @@ Public Class Tfleet2hp
 
             GetBaseValues(BaseValues(i), stats)
             FinalStats(stats, BaseValues(i).FleetCount)
-            CalculateStatPenalty(stats, BaseValues(i).FleetType, BaseValues(i).Attacker)
+            CalculateStatPenalty(stats, BaseValues(i).FleetType, BaseValues(i).Attacker, BaseValues(i).FleetCount)
 
             If BaseValues(i).Attacker Then
                 ArmadaAttackHP += stats.CombinedHP
@@ -262,6 +266,8 @@ Public Class Tfleet2hp
                 stats.FleetAttacker = False
             End If
             stats.Type = BaseValues(i).FleetType
+            stats.SCombinedDamage = stats.CombinedDamage
+            stats.SCombinedHP = stats.CombinedHP
             result(i) = stats
         Next
 
@@ -314,8 +320,9 @@ Public Class Tfleet2hp
                         'Add losses to Total Loss count, and remove lost ships from fleet totals
                         FinalStats(i).TotalLosses += roundstats.Losses
                         FinalStats(i).CombinedHP -= (roundstats.Losses * roundstats.HP)
-                        FinalStats(i).CombinedDamage -= (roundstats.Losses * roundstats.Damage)
-                        FinalStats(i).Losses = 0
+                    FinalStats(i).CombinedDamage -= (roundstats.Losses * roundstats.Damage)
+                    FinalStats(i).Count2 -= FinalStats(i).Losses
+                    FinalStats(i).Losses = 0
 
                     'Add post-combat values to R1 Armada Totals
                     If FinalStats(i).FleetAttacker Then
@@ -348,6 +355,7 @@ Public Class Tfleet2hp
                         FinalStats(i).TotalLosses += roundstats.Losses
                         FinalStats(i).CombinedHP -= (roundstats.Losses * roundstats.HP)
                         FinalStats(i).CombinedDamage -= (roundstats.Losses * roundstats.Damage)
+                        FinalStats(i).Count2 -= FinalStats(i).Losses
                         FinalStats(i).Losses = 0
 
                         'Add post-combat values to R1 Armada Totals
@@ -388,6 +396,7 @@ Public Class Tfleet2hp
                         FinalStats(i).TotalLosses += roundstats.Losses
                         FinalStats(i).CombinedHP -= (roundstats.Losses * roundstats.HP)
                         FinalStats(i).CombinedDamage -= (roundstats.Losses * roundstats.Damage)
+                        FinalStats(i).Count2 -= FinalStats(i).Losses
                         FinalStats(i).Losses = 0
 
                     End If
@@ -403,9 +412,46 @@ Public Class Tfleet2hp
 
     End Function
 
+    'Private Function Convert(ByVal ParamArray convertstats()) As Array(,)
+    '    Dim result(convertstats.Count, 10)
+    '    For c As Integer = 0 To convertstats.Count - 1
+    '        For b As Integer = 0 To 10
+    '            Select Case b
+    '                Case 0
+    '                    result(c, b) = convertstats(c).HP
+    '                Case 1
+    '                    result(c, b) = convertstats(c).Damage
+    '                Case 2
+    '                    result(c, b) = convertstats(c).HPBoost
+    '                Case 3
+    '                    result(c, b) = convertstats(c).DamageBoost
+    '                Case 4
+    '                    result(c, b) = convertstats(c).CombinedHP
+    '                Case 5
+    '                    result(c, b) = convertstats(c).CombinedDamage
+    '                Case 6
+    '                    result(c, b) = convertstats(c).TakenDamage
+    '                Case 7
+    '                    result(c, b) = convertstats(c).Losses
+    '                Case 8
+    '                    result(c, b) = convertstats(c).FleetAttacker
+    '                Case 9
+    '                    result(c, b) = convertstats(c).TotalLosses
+    '                Case 10
+    '                    result(c, b) = convertstats(c).Type
+    '            End Select
+
+    '        Next
+    '    Next
+    '    result = 
+
+
+    'End Function
+
     Private Sub Result_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Dim stats, defstats As FleetStats()
+
         stats = Calculate(fleetarray)
         defstats = Calculate(dfleetarray)
         AttackFleets = Fight(stats)
@@ -416,8 +462,17 @@ Public Class Tfleet2hp
         j = 2
         AttackFleetsR2 = Fight(AttackFleetsR1)
         DefenseFleetsR2 = Fight(DefenseFleetsR1)
+        'ConvertedFinal = Convert(AttackFleetsR2)
+        'ConvertedFinalD = Convert(DefenseFleetsR2)
 
-
+        DataGridView1.Rows.Clear()
+        For k As Integer = 0 To AttackFleetsR2.GetLength(0) - 1
+            DataGridView1.Rows.Add(AttackFleetsR2(k).Type, AttackFleetsR2(k).Count, AttackFleetsR2(k).HP, AttackFleetsR2(k).Damage, AttackFleetsR2(k).SCombinedHP, AttackFleetsR2(k).SCombinedDamage, AttackFleetsR2(k).FleetAttacker, AttackFleetsR2(k).TotalLosses, AttackFleetsR2(k).Count2)
+        Next
+        DataGridView1.Rows.Add()
+        For l As Integer = 0 To DefenseFleetsR2.GetLength(0) - 1
+            DataGridView1.Rows.Add(DefenseFleetsR2(l).Type, DefenseFleetsR2(l).Count, DefenseFleetsR2(l).HP, DefenseFleetsR2(l).Damage, DefenseFleetsR2(l).SCombinedHP, DefenseFleetsR2(l).SCombinedDamage, DefenseFleetsR2(l).FleetAttacker, DefenseFleetsR2(l).TotalLosses, DefenseFleetsR2(l).Count2)
+        Next
     End Sub
 
     Private Sub Tfleet2hp_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed

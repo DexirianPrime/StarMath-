@@ -64,6 +64,10 @@ Public Class FleetStats
     Public FleetAttacker As Boolean
     Public TotalLosses As Int32
     Public Type As String
+    Public Count As Int16
+    Public SCombinedHP As Int64
+    Public SCombinedDamage As Int64
+    Public Count2 As Int16
 
 
 
@@ -78,7 +82,13 @@ Public Class FleetStats
         TakenDamage = 0
         Losses = 0
         TotalLosses = 0
+        Count = 0
+        SCombinedHP = 0
+        SCombinedDamage = 0
+        Count2 = 0
     End Sub
+
+
 End Class
 
 
