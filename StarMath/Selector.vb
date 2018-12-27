@@ -5,26 +5,16 @@ Imports StarMath
 
 
 Public Module globalfleet
-
     Public attacktype As String
     Public fleetcount As Int16
     Public dfleetcount As Int16
     Public fleetarray As FleetBase()
     Public dfleetarray As FleetBase()
     Public ByOurBlood As Boolean = False
-
-
-
-
 End Module
 
 
-
 Public Class Selector
-
-    Private Sub Label1_Click(sender As Object, e As EventArgs) Handles Label1.Click
-
-    End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         BC1.Show()
@@ -32,16 +22,13 @@ Public Class Selector
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
-
+        'This would lead to harvest calculator were there one
     End Sub
 
-    Private Sub Selector_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
-    End Sub
 End Class
 
-
 Public Class FleetBase
+    'Define all the elements of the FleetBase object
     Public FleetType As String
     Public FleetDamage As Integer
     Public FleetHealth As Integer
@@ -53,6 +40,7 @@ Public Class FleetBase
 End Class
 
 Public Class FleetStats
+    'Define all the elements of the FleetStats object
     Public HP As Int64
     Public Damage As Int64
     Public HPBoost As Int64
@@ -69,11 +57,7 @@ Public Class FleetStats
     Public SCombinedDamage As Int64
     Public Count2 As Int16
     Public Count3 As Int16
-
-
-
-
-
+    'Init Variables to 0
     Public Sub New()
         HP = 0
         Damage = 0
@@ -90,8 +74,6 @@ Public Class FleetStats
         Count2 = 0
         Count3 = 0
     End Sub
-
-
 End Class
 
 
