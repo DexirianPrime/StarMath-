@@ -9,9 +9,6 @@
         Else
             MessageBox.Show("Please input valid values!")
         End If
-
-
-
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
@@ -28,14 +25,13 @@
                 Exit For
             End If
         Next
-        For j As Integer = 0 To dfleetarray.Length - 1
-            result = ((dfleetarray(j).FleetType <> "") And (dfleetarray(j).FleetCount <> Nothing))
+        For i As Integer = 0 To dfleetarray.Length - 1
+            result = ((dfleetarray(i).FleetType <> "") And (dfleetarray(i).FleetCount <> Nothing))
 
             If Not result Then
                 Exit For
             End If
         Next
-
 
         Return result
     End Function
@@ -44,14 +40,11 @@
         Selector.Close()
     End Sub
 
-    Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
-        If Not ByOurBlood Then
-            ByOurBlood = True
-
-        End If
-    End Sub
-
     Private Sub frmFleet_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
+    End Sub
+
+    Private Sub cbByOurBlood_CheckedChanged(sender As Object, e As EventArgs) Handles cbByOurBlood.CheckedChanged
+        ByOurBlood = cbByOurBlood.Checked
     End Sub
 End Class

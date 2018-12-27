@@ -22,23 +22,14 @@ Partial Class frmFleet
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
-        Me.BaseFleetGrid1 = New StarMath.BaseFleetGrid()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.btnNext = New System.Windows.Forms.Button()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.BaseFleetGrid2 = New StarMath.BaseFleetGrid()
+        Me.cbByOurBlood = New System.Windows.Forms.CheckBox()
         Me.Label2 = New System.Windows.Forms.Label()
+        Me.BaseFleetGrid2 = New StarMath.BaseFleetGrid()
+        Me.BaseFleetGrid1 = New StarMath.BaseFleetGrid()
         Me.SuspendLayout()
-        '
-        'BaseFleetGrid1
-        '
-        Me.BaseFleetGrid1.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.BaseFleetGrid1.Location = New System.Drawing.Point(35, 45)
-        Me.BaseFleetGrid1.Name = "BaseFleetGrid1"
-        Me.BaseFleetGrid1.Size = New System.Drawing.Size(925, 278)
-        Me.BaseFleetGrid1.TabIndex = 0
         '
         'btnBack
         '
@@ -68,32 +59,16 @@ Partial Class frmFleet
         Me.Label6.TabIndex = 24
         Me.Label6.Text = "ATTACKING FLEET"
         '
-        'Label1
+        'cbByOurBlood
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(12, 350)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(89, 13)
-        Me.Label1.TabIndex = 25
-        Me.Label1.Text = "By Our Blood I"
-        '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(107, 350)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(15, 14)
-        Me.CheckBox1.TabIndex = 26
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'BaseFleetGrid2
-        '
-        Me.BaseFleetGrid2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.BaseFleetGrid2.Location = New System.Drawing.Point(35, 410)
-        Me.BaseFleetGrid2.Name = "BaseFleetGrid2"
-        Me.BaseFleetGrid2.Size = New System.Drawing.Size(925, 278)
-        Me.BaseFleetGrid2.TabIndex = 27
+        Me.cbByOurBlood.AutoSize = True
+        Me.cbByOurBlood.CheckAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.cbByOurBlood.Location = New System.Drawing.Point(35, 343)
+        Me.cbByOurBlood.Name = "cbByOurBlood"
+        Me.cbByOurBlood.Size = New System.Drawing.Size(94, 17)
+        Me.cbByOurBlood.TabIndex = 26
+        Me.cbByOurBlood.Text = "By Our Blood I"
+        Me.cbByOurBlood.UseVisualStyleBackColor = True
         '
         'Label2
         '
@@ -105,6 +80,22 @@ Partial Class frmFleet
         Me.Label2.TabIndex = 28
         Me.Label2.Text = "DEFENDING FLEETS"
         '
+        'BaseFleetGrid2
+        '
+        Me.BaseFleetGrid2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.BaseFleetGrid2.Location = New System.Drawing.Point(35, 410)
+        Me.BaseFleetGrid2.Name = "BaseFleetGrid2"
+        Me.BaseFleetGrid2.Size = New System.Drawing.Size(925, 278)
+        Me.BaseFleetGrid2.TabIndex = 27
+        '
+        'BaseFleetGrid1
+        '
+        Me.BaseFleetGrid1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.BaseFleetGrid1.Location = New System.Drawing.Point(35, 45)
+        Me.BaseFleetGrid1.Name = "BaseFleetGrid1"
+        Me.BaseFleetGrid1.Size = New System.Drawing.Size(925, 278)
+        Me.BaseFleetGrid1.TabIndex = 0
+        '
         'frmFleet
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -112,8 +103,7 @@ Partial Class frmFleet
         Me.ClientSize = New System.Drawing.Size(998, 732)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.BaseFleetGrid2)
-        Me.Controls.Add(Me.CheckBox1)
-        Me.Controls.Add(Me.Label1)
+        Me.Controls.Add(Me.cbByOurBlood)
         Me.Controls.Add(Me.Label6)
         Me.Controls.Add(Me.btnNext)
         Me.Controls.Add(Me.btnBack)
@@ -129,8 +119,7 @@ Partial Class frmFleet
     Friend WithEvents btnBack As Button
     Friend WithEvents btnNext As Button
     Friend WithEvents Label6 As Label
-    Friend WithEvents Label1 As Label
-    Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents cbByOurBlood As CheckBox
     Friend WithEvents BaseFleetGrid2 As BaseFleetGrid
     Friend WithEvents Label2 As Label
 End Class

@@ -38,6 +38,7 @@ Partial Class BaseFleetGrid
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.dgfleets.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgfleets.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.ShipType, Me.FleetSize, Me.HardpointCard, Me.HullCard, Me.FleetCharacter})
+        Me.dgfleets.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter
         Me.dgfleets.Location = New System.Drawing.Point(0, 0)
         Me.dgfleets.Name = "dgfleets"
         Me.dgfleets.Size = New System.Drawing.Size(936, 167)
