@@ -68,6 +68,8 @@ Public Class FleetStats
     Public SCombinedHP As Int64
     Public SCombinedDamage As Int64
     Public Count2 As Int16
+    Public Count3 As Int16
+
 
 
 
@@ -86,6 +88,7 @@ Public Class FleetStats
         SCombinedHP = 0
         SCombinedDamage = 0
         Count2 = 0
+        Count3 = 0
     End Sub
 
 
