@@ -117,6 +117,7 @@ Public Class Tfleet2hp
 
                 End Select
 
+
             Case "Destroyer", "Frigate", "Gunship"
 
                 stats.HP = 1000
@@ -176,21 +177,21 @@ Public Class Tfleet2hp
                     'NEED TO UPDATE VALUES 
 
                     Case "Common HP"
-                        stats.HPBoost = stats.HPBoost + 125
+                        stats.HPBoost = stats.HPBoost + 625
                     Case "Rare HP"
-                        stats.HPBoost = stats.HPBoost + 250
+                        stats.HPBoost = stats.HPBoost + 1250
                     Case "Epic HP"
-                        stats.HPBoost = stats.HPBoost + 375
+                        stats.HPBoost = stats.HPBoost + 1875
                     Case "Legendary HP"
-                        stats.HPBoost = stats.HPBoost + 500
+                        stats.HPBoost = stats.HPBoost + 2500
                     Case "Common DMG"
-                        stats.DamageBoost = stats.DamageBoost + 25
+                        stats.DamageBoost = stats.DamageBoost + 125
                     Case "Rare DMG"
-                        stats.DamageBoost = stats.DamageBoost + 50
+                        stats.DamageBoost = stats.DamageBoost + 250
                     Case "Epic DMG"
-                        stats.DamageBoost = stats.DamageBoost + 75
+                        stats.DamageBoost = stats.DamageBoost + 375
                     Case "Legendary DMG"
-                        stats.DamageBoost = stats.DamageBoost + 100
+                        stats.DamageBoost = stats.DamageBoost + 500
 
                 End Select
 
@@ -214,6 +215,8 @@ Public Class Tfleet2hp
                         stats.DamageBoost = stats.DamageBoost + 1000
 
                 End Select
+
+
 
         End Select
     End Sub
