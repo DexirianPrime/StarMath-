@@ -28,21 +28,21 @@ Partial Class frmFleet
         Me.Label6 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
+        Me.BaseFleetGrid2 = New StarMath.BaseFleetGrid()
+        Me.Label2 = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'BaseFleetGrid1
         '
-        Me.BaseFleetGrid1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Left) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.BaseFleetGrid1.Location = New System.Drawing.Point(12, 42)
+        Me.BaseFleetGrid1.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.BaseFleetGrid1.Location = New System.Drawing.Point(35, 45)
         Me.BaseFleetGrid1.Name = "BaseFleetGrid1"
-        Me.BaseFleetGrid1.Size = New System.Drawing.Size(964, 286)
+        Me.BaseFleetGrid1.Size = New System.Drawing.Size(925, 278)
         Me.BaseFleetGrid1.TabIndex = 0
         '
         'btnBack
         '
-        Me.btnBack.Location = New System.Drawing.Point(820, 345)
+        Me.btnBack.Location = New System.Drawing.Point(823, 697)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(75, 23)
         Me.btnBack.TabIndex = 1
@@ -51,7 +51,7 @@ Partial Class frmFleet
         '
         'btnNext
         '
-        Me.btnNext.Location = New System.Drawing.Point(901, 345)
+        Me.btnNext.Location = New System.Drawing.Point(904, 697)
         Me.btnNext.Name = "btnNext"
         Me.btnNext.Size = New System.Drawing.Size(75, 23)
         Me.btnNext.TabIndex = 2
@@ -87,11 +87,31 @@ Partial Class frmFleet
         Me.CheckBox1.TabIndex = 26
         Me.CheckBox1.UseVisualStyleBackColor = True
         '
+        'BaseFleetGrid2
+        '
+        Me.BaseFleetGrid2.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.BaseFleetGrid2.Location = New System.Drawing.Point(35, 410)
+        Me.BaseFleetGrid2.Name = "BaseFleetGrid2"
+        Me.BaseFleetGrid2.Size = New System.Drawing.Size(925, 278)
+        Me.BaseFleetGrid2.TabIndex = 27
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label2.Location = New System.Drawing.Point(403, 365)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(197, 24)
+        Me.Label2.TabIndex = 28
+        Me.Label2.Text = "DEFENDING FLEETS"
+        '
         'frmFleet
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(1006, 380)
+        Me.ClientSize = New System.Drawing.Size(998, 732)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.BaseFleetGrid2)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.Label6)
@@ -99,7 +119,7 @@ Partial Class frmFleet
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.BaseFleetGrid1)
         Me.Name = "frmFleet"
-        Me.Text = "Attackers"
+        Me.Text = "Fleet Input"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -111,4 +131,6 @@ Partial Class frmFleet
     Friend WithEvents Label6 As Label
     Friend WithEvents Label1 As Label
     Friend WithEvents CheckBox1 As CheckBox
+    Friend WithEvents BaseFleetGrid2 As BaseFleetGrid
+    Friend WithEvents Label2 As Label
 End Class

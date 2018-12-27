@@ -37,4 +37,8 @@
     Private Sub BaseFleetGrid1_Load(sender As Object, e As EventArgs) Handles BaseFleetGrid1.Load
 
     End Sub
+
+    Private Sub DefFleet_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+    End Sub
 End Class

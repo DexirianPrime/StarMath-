@@ -118,6 +118,19 @@ Public Class Tfleet2hp
 
                 End Select
 
+                Select Case base.FleetCard
+
+                    Case "Fleet Cadet"
+                        stats.HPBoost += 5
+                        stats.DamageBoost += 2
+
+                    Case "Max Rykov"
+                        If attacktype = "raid" Then
+                            stats.HPBoost += 25
+
+                        End If
+
+                End Select
 
             Case "Destroyer", "Frigate", "Gunship"
 
@@ -163,6 +176,22 @@ Public Class Tfleet2hp
                         stats.DamageBoost = stats.DamageBoost + 150
                     Case "Legendary DMG"
                         stats.DamageBoost = stats.DamageBoost + 200
+
+
+                End Select
+
+                Select Case base.FleetCard
+                    Case "Fleet Cadet"
+                        stats.HPBoost += 25
+                        stats.DamageBoost += 10
+
+
+
+                    Case "Max Rykov"
+                        If attacktype = "raid" Then
+                            stats.HPBoost += 125
+
+                        End If
 
                 End Select
 
@@ -217,15 +246,20 @@ Public Class Tfleet2hp
 
                 End Select
 
+                Select Case base.FleetCard
+                    Case "Fleet Cadet"
+                        stats.HPBoost += 125
+                        stats.DamageBoost += 50
+
+
+                End Select
 
 
         End Select
-    End Sub
-
-    Private Sub FinalStats(ByRef stats As FleetStats, FleetCount As Int32)
         stats.HP += stats.HPBoost
         stats.Damage += stats.DamageBoost
     End Sub
+
 
     Private Sub CalculateStatPenalty(ByRef stats As FleetStats, FleetType As String, Attacker As Boolean, FleetCount As Integer)
 
@@ -257,7 +291,6 @@ Public Class Tfleet2hp
             Dim stats As FleetStats = New FleetStats()
 
             GetBaseValues(BaseValues(i), stats)
-            FinalStats(stats, BaseValues(i).FleetCount)
             CalculateStatPenalty(stats, BaseValues(i).FleetType, BaseValues(i).Attacker, BaseValues(i).FleetCount)
 
             If BaseValues(i).Attacker Then
@@ -508,17 +541,18 @@ Public Class Tfleet2hp
         j = 2
         AttackFleetsR2 = Fight(AttackFleetsR1)
         DefenseFleetsR2 = Fight(DefenseFleetsR1)
-        'ConvertedFinal = Convert(AttackFleetsR2)
-        'ConvertedFinalD = Convert(DefenseFleetsR2)
+
 
         DataGridView1.Rows.Clear()
         For k As Integer = 0 To AttackFleetsR2.GetLength(0) - 1
             DataGridView1.Rows.Add(AttackFleetsR2(k).Type, AttackFleetsR2(k).Count3, AttackFleetsR2(k).HP, AttackFleetsR2(k).Damage, AttackFleetsR2(k).SCombinedHP, AttackFleetsR2(k).SCombinedDamage, AttackFleetsR2(k).FleetAttacker, AttackFleetsR2(k).TotalLosses, AttackFleetsR2(k).Count2)
         Next
+        DataGridView1.Rows.Add("Attacking Armada", "", "", "", ArmadaAttackHP, ArmadaAttackDamage)
         DataGridView1.Rows.Add()
         For l As Integer = 0 To DefenseFleetsR2.GetLength(0) - 1
             DataGridView1.Rows.Add(DefenseFleetsR2(l).Type, DefenseFleetsR2(l).Count3, DefenseFleetsR2(l).HP, DefenseFleetsR2(l).Damage, DefenseFleetsR2(l).SCombinedHP, DefenseFleetsR2(l).SCombinedDamage, DefenseFleetsR2(l).FleetAttacker, DefenseFleetsR2(l).TotalLosses, DefenseFleetsR2(l).Count2)
         Next
+        DataGridView1.Rows.Add("Defending Armada", "", "", "", ArmadaDefenseHPR, ArmadaDefenseDamageR)
     End Sub
 
     Private Sub Tfleet2hp_FormClosed(sender As Object, e As FormClosedEventArgs) Handles MyBase.FormClosed

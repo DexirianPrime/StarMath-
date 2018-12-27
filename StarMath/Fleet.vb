@@ -1,13 +1,16 @@
 ﻿Public Class frmFleet
     Private Sub btnNext_Click(sender As Object, e As EventArgs) Handles btnNext.Click
         fleetarray = BaseFleetGrid1.StoreValues(True)
+        dfleetarray = BaseFleetGrid2.StoreValues(False)
 
         If ValidateValues() Then
             Me.Hide()
-            DefFleet.Show()
+            Tfleet2hp.Show()
         Else
             MessageBox.Show("Please input valid values!")
         End If
+
+
 
     End Sub
 
@@ -25,6 +28,14 @@
                 Exit For
             End If
         Next
+        For j As Integer = 0 To dfleetarray.Length - 1
+            result = ((dfleetarray(j).FleetType <> "") And (dfleetarray(j).FleetCount <> Nothing))
+
+            If Not result Then
+                Exit For
+            End If
+        Next
+
 
         Return result
     End Function
@@ -38,5 +49,9 @@
             ByOurBlood = True
 
         End If
+    End Sub
+
+    Private Sub frmFleet_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
     End Sub
 End Class
