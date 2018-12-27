@@ -46,10 +46,7 @@
     End Sub
 
     Private Sub CheckBox1_CheckedChanged(sender As Object, e As EventArgs) Handles CheckBox1.CheckedChanged
-        If Not ByOurBlood Then
-            ByOurBlood = True
-
-        End If
+        ByOurBlood = CheckBox1.Checked
     End Sub
 
     Private Sub frmFleet_Load(sender As Object, e As EventArgs) Handles MyBase.Load
