@@ -53,5 +53,7 @@
       
     End Sub
 
-
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
+        ArmedGarisson = ComboBox1.Text
+    End Sub
 End Class

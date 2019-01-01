@@ -12,6 +12,7 @@ Public Module globalfleet
     Public dfleetarray As FleetBase()
     Public ByOurBlood As Boolean = False
     Public DefSupression As Int32 = 0
+    Public ArmedGarisson As String = ""
 End Module
 
 
