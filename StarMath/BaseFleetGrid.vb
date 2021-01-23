@@ -7,20 +7,11 @@
 
             fleet.Attacker = Attacker
 
-            For j As Integer = 0 To dgfleets.ColumnCount - 1
-                Select Case j
-                    Case 0
-                        fleet.FleetType = dgfleets.Rows(i).Cells(j).Value
-                    Case 1
-                        fleet.FleetCount = dgfleets.Rows(i).Cells(j).Value
-                    Case 2
-                        fleet.FleetHard = dgfleets.Rows(i).Cells(j).Value
-                    Case 3
-                        fleet.FleetHull = dgfleets.Rows(i).Cells(j).Value
-                    Case 4
-                        fleet.FleetCard = dgfleets.Rows(i).Cells(j).Value
-                End Select
-            Next j
+            fleet.FleetType = dgfleets.Rows(i).Cells(0).Value
+            fleet.FleetCount = dgfleets.Rows(i).Cells(1).Value
+            fleet.FleetHard = dgfleets.Rows(i).Cells(2).Value
+            fleet.FleetHull = dgfleets.Rows(i).Cells(3).Value
+            fleet.FleetCard = dgfleets.Rows(i).Cells(4).Value
 
             fleets(i) = fleet
         Next i
@@ -28,34 +19,29 @@
         Return fleets
     End Function
 
-    Private Sub dgfleets_CellValueChanged(sender As Object, e As DataGridViewCellEventArgs) Handles dgfleets.CellValueChanged
-        If (dgfleets.Rows.Count > 0) And (e.RowIndex > -1) Then
-            If (e.ColumnIndex = 1) Then
-                Try
-                    Dim i2 As Integer
-                    i2 = Integer.Parse(dgfleets.Rows(e.RowIndex).Cells("FleetSize").Value, Globalization.NumberStyles.Any)
-
-                    If i2 < 1 Or i2 > 1500 Then
-                        Dim ToolTip1 As New ToolTip
-                        ToolTip1.IsBalloon = True
-                        ToolTip1.UseFading = True
-                        ToolTip1.ToolTipIcon = ToolTipIcon.Error
-                        ToolTip1.ToolTipTitle = "Please enter a number between 1 and 1500"
-                        ToolTip1.Show("Value was out of range", Me, 0, 20)
-                        dgfleets.Rows(e.RowIndex).Cells("FleetSize").Value = ""
-                    End If
-                Catch ex As Exception
-                    Dim ToolTip1 As New ToolTip
-                    ToolTip1.IsBalloon = True
-                    ToolTip1.UseFading = True
-                    ToolTip1.ToolTipIcon = ToolTipIcon.Error
-                    ToolTip1.ToolTipTitle = "Please enter a number between 1 and 1500"
-                    ToolTip1.Show("Style is not an Integer value", Me, 0, 20)
-                    dgfleets.Rows(e.RowIndex).Cells("FleetSize").Value = ""
-                End Try
-            End If
+    Private Sub TextBox_KeyPress(sender As Object, e As KeyPressEventArgs)
+        If Not Char.IsNumber(e.KeyChar) And e.KeyChar <> Convert.ToChar(Keys.Delete) And e.KeyChar <> Convert.ToChar(Keys.Back) Then
+            e.Handled = True
         End If
     End Sub
 
+    Private Sub dgfleets_EditingControlShowing(sender As Object, e As DataGridViewEditingControlShowingEventArgs) Handles dgfleets.EditingControlShowing
+        If (dgfleets.CurrentCell.ColumnIndex = 1) Then
+            AddHandler e.Control.KeyPress, AddressOf TextBox_KeyPress
+            AddHandler e.Control.TextChanged, AddressOf TextBox_TextChanged
+        End If
+    End Sub
 
+    Private Sub TextBox_TextChanged(sender As Object, e As EventArgs)
+        Dim tb As TextBox = CType(sender, TextBox)
+        Try
+            Dim value As Integer = Integer.Parse(tb.Text)
+            If (value > 1500) Then
+                tb.Text = "1500"
+                tb.SelectionStart = tb.Text.Length  ' Place the cursor at the end of the textbox content
+            End If
+        Catch ex As Exception
+
+        End Try
+    End Sub
 End Class
