@@ -269,10 +269,7 @@ Public Class Tfleet2hp
         ArmadaDefenseDamageR = 0
 
         'Apply Defense Firepower Boost in case of raid on temp variables
-        If attacktype = "raid" Then
-            ArmadaDefenseHPR = ArmadaDefenseHP
-            ArmadaDefenseDamageR = ArmadaDefenseDamage * 1.1
-        End If
+
         'Loop for each fleet 
         For i As Integer = 0 To FinalStats.Count() - 1
             'New Temporary object array for combat stats
@@ -282,13 +279,24 @@ Public Class Tfleet2hp
             Select Case j
                     'Combat Round 0               
                 Case 0
-                    'Set R0 variable from current armada stats according to round 1 boosts
+
+                    'Calculate HP Proportion taken before bonuses are applied
                     If Not (roundstats.FleetAttacker) Then
                         roundstats.PercentageTaken = roundstats.CombinedHP / ArmadaDefenseHP
                     Else
                         roundstats.PercentageTaken = roundstats.CombinedHP / ArmadaAttackHP
                     End If
 
+                    If attacktype = "raid" Then
+
+                        ArmadaDefenseDamageR = ArmadaDefenseDamage * 1.1
+                    Else
+                        ArmadaDefenseDamageR = ArmadaDefenseDamage
+                    End If
+
+                    ArmadaDefenseHPR = ArmadaDefenseHP
+
+                    'Set R0 variable from current armada stats according to round 1 boosts
                     ArmadaAttackDamageR0 = ArmadaAttackDamage * 0.72
                     ArmadaAttackHPR0 = ArmadaAttackHP
                     ArmadaDefenseDamageR0 = ArmadaDefenseDamageR * 0.72
@@ -297,6 +305,23 @@ Public Class Tfleet2hp
                     roundstats.TCombinedDamage = roundstats.CombinedDamage * 0.72
                     roundstats.THP = roundstats.HP
                     roundstats.TDamage = roundstats.Damage * 0.72
+
+                    Select Case ArmedGarisson
+
+                        Case "1"
+                            ArmadaDefenseDamageR0 += 3000
+                        Case "2"
+                            ArmadaDefenseDamageR0 += 6000
+                        Case "3"
+                            ArmadaDefenseDamageR0 += 9000
+                        Case "4"
+                            ArmadaDefenseDamageR0 += 12000
+                        Case "5"
+                            ArmadaDefenseDamageR0 += 15000
+
+                    End Select
+
+
                     'Calculate Damage taken for every fleet
                     If Not (roundstats.FleetAttacker) Then
                         roundstats.TakenDamage = roundstats.PercentageTaken * ArmadaAttackDamageR0
@@ -335,12 +360,27 @@ Public Class Tfleet2hp
                     'Combat Round 1
                 Case 1
 
-                    If ArmadaDefenseDamageR1 > 0 And ArmadaAttackDamageR1 > 0 Then
+                    If ArmadaDefenseDamageR1 > 0 Or ArmadaAttackDamageR1 > 0 Then
                         If Not (roundstats.FleetAttacker) Then
                             roundstats.PercentageTaken = roundstats.CombinedHP / ArmadaDefenseHPR1
                         Else
                             roundstats.PercentageTaken = roundstats.CombinedHP / ArmadaAttackHPR1
                         End If
+
+                        'Add AG Damage
+                        Select Case ArmedGarisson
+                            Case "1"
+                                ArmadaDefenseDamageR1 += 3000
+                            Case "2"
+                                ArmadaDefenseDamageR1 += 6000
+                            Case "3"
+                                ArmadaDefenseDamageR1 += 9000
+                            Case "4"
+                                ArmadaDefenseDamageR1 += 12000
+                            Case "5"
+                                ArmadaDefenseDamageR1 += 15000
+
+                        End Select
                         'Calculate Damage taken for every fleet
                         If Not (roundstats.FleetAttacker) Then
                             roundstats.TakenDamage = roundstats.PercentageTaken * ArmadaAttackDamageR1
@@ -376,10 +416,26 @@ Public Class Tfleet2hp
                             ArmadaDefenseDamageR2 += FinalStats(i).CombinedDamage
                             ArmadaDefenseHPR2 += FinalStats(i).CombinedHP
                         End If
+
+                        'Remove AG damage to prepare for next fleet
+                        Select Case ArmedGarisson
+
+                            Case "1"
+                                ArmadaDefenseDamageR1 -= 3000
+                            Case "2"
+                                ArmadaDefenseDamageR1 -= 6000
+                            Case "3"
+                                ArmadaDefenseDamageR1 -= 9000
+                            Case "4"
+                                ArmadaDefenseDamageR1 -= 12000
+                            Case "5"
+                                ArmadaDefenseDamageR1 -= 15000
+
+                        End Select
                     End If
                     'Combat Round 2
                 Case 2
-                    If ArmadaDefenseDamageR2 > 0 And ArmadaAttackDamageR2 > 0 Then
+                    If ArmadaDefenseDamageR2 > 0 Or ArmadaAttackDamageR2 > 0 Then
                         'Set R3 variable from current armada stats according to round 1 boosts
                         If Not (roundstats.FleetAttacker) Then
                             roundstats.PercentageTaken = roundstats.CombinedHP / ArmadaDefenseHPR2
@@ -395,6 +451,20 @@ Public Class Tfleet2hp
                         roundstats.TCombinedDamage = roundstats.CombinedDamage * 1.66
                         roundstats.THP = roundstats.HP
                         roundstats.TDamage = roundstats.Damage * 1.66
+
+                        Select Case ArmedGarisson
+                            Case "1"
+                                ArmadaDefenseDamageR3 += 3000 * 1.66
+                            Case "2"
+                                ArmadaDefenseDamageR3 += 6000 * 1.66
+                            Case "3"
+                                ArmadaDefenseDamageR3 += 9000 * 1.66
+                            Case "4"
+                                ArmadaDefenseDamageR3 += 12000 * 1.66
+                            Case "5"
+                                ArmadaDefenseDamageR3 += 15000 * 1.66
+                        End Select
+
                         'Calculate Damage taken for every fleet
                         If Not (roundstats.FleetAttacker) Then
                             roundstats.TakenDamage = roundstats.PercentageTaken * ArmadaAttackDamageR3
